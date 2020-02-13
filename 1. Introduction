@@ -1,0 +1,8 @@
+1/ How Javascript is executed
+- Để javascript code effect lên webpage thì thông qua Javascript Engine (V8 của Chrome, SpiderMonkey của Firefox).
+- Javascript Engine sẽ Parse code (đọc và hiểu code) -> Compile to machine code -> Execute machine code.
+- Effect on webpage.
+
+2/ Dynamic and weakly typed
+- Dynamic: not pre-compiled, code evaluated and executed at runtime, code can change at runtime.
+- Weakly typed: không cần định nghĩa kiểu biến cho dữ liệu (string, number,...)
