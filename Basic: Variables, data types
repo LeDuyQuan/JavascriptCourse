@@ -1,0 +1,31 @@
+1. Operator
+"23" + 1 -> "123"
+"23" - 1 -> 22
++"234" -> 234
+
+
+2. Indirect and Direct funtion
+function add() {
+  something = someNum + someOtherNum;
+}
+
+Khi gọi direct: add()
+Gọi Indirect: someButton.addEventListener('click', add);
+
+someButton.addEventListener('click', add()); => wrong
+Vì javasript sẽ đọc và thực thi dòng đó ngay lập tức
+
+
+3. Typeof
+typeof NaN -> number
+typeof [1 , 2, 3] -> object
+typeof undefined -> undefined
+typeof null -> object
+
+
+4. Javascript async và defer
+<script defer src="script.js"> 
+<script async src="script.js">  
+Nếu script là 1 module tách biệt, không phụ thuộc vào script nào khác thì nên sử dụng async cho load và execute với trang luôn
+Nếu script phụ thuộc vào script khác, hoặc bị script khác phụ thuộc, thì nên dùng defer, để load và execute theo thứ tự
+Nếu script nhỏ và các script khác phụ thuộc vào nó, thì cho load inline và không cần async hay defer
