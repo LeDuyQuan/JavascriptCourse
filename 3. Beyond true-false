@@ -1,0 +1,8 @@
+1. Truthy and falsy
+
+0 -> false
+any other number -> true
+"" (empty string) -> false
+any other non-empty string -> true
+{}, [] -> true
+null, undefined, NaN -> false
