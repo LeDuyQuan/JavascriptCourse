@@ -1,0 +1,5 @@
+1. Trick Boolean
+
+!!true = !!"abc" = !!1 = true
+!!false = !!"" = !!0 = !!undefined = !!null = false
+
