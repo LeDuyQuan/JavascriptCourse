@@ -3,3 +3,6 @@
 !!true = !!"abc" = !!1 = true
 !!false = !!"" = !!0 = !!undefined = !!null = false
 
+const name = ""
+const hasName = name ? true : false
+=> const hasName = !!name
