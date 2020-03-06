@@ -33,5 +33,6 @@ console.log(userName)
 -> Quan
 
 => bad code: Vì người khác có thể sẽ nghĩ rằng đã khai báo ở đâu và sẽ tìm
+=> "use strict": sử dụng để code nghiêm ngặt hơn, cấm các trường hợp bad code
 
 
