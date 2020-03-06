@@ -14,3 +14,13 @@ function getName(){
 }
 
 
+2. Hoisting
+Đối với var, javascript có chức năng đặc biệt là hoisting
+
+console.log(userName)
+var userName = "Quan"
+-> undefined
+
+console.log(userName)
+let userName = "Quan"
+-> error
