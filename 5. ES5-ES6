@@ -24,3 +24,14 @@ var userName = "Quan"
 console.log(userName)
 let userName = "Quan"
 -> error
+
+
+3. Không khai váo key
+Ex: 
+userName = "Quan"  -> ngầm định là var userName
+console.log(userName)
+-> Quan
+
+=> bad code: Vì người khác có thể sẽ nghĩ rằng đã khai báo ở đâu và sẽ tìm
+
+
