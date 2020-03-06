@@ -1,0 +1,16 @@
+1. var vs let & const
+
+var: available since ... ever, function & global scope
+let & const: available since ES6, block scope
+
+Ex:
+function getName(){
+  if (isValid) {
+    var name = "Quan";
+    console.log(name)
+  }
+  console.log(name) -> out of block -> still working
+  //Nếu thay thế var thành let hoặc const sẽ báo lỗi
+}
+
+
