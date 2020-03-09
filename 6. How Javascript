@@ -1,0 +1,14 @@
+1. How code is parsed & compiled
+
+- Browser comes in and executes our script
++ Parsing: browser reads this javascript, loads it
++ Execution: actual process where something happens, where our code has an effect
+
+- Browser have a Javascript engine (V8 or Sprider Monkey)
+- Javascript engine: công cụ này thực hiện phân tích cú pháp (Parsing) và thực thi (Execution) và chúng thường bao gồm hai phần:
++ Interpreter (trình thông dịch): parses script & starts execution: loads script, reads it, translates it to byte code
++ Compiler (just in time):  compiles the script to machine code, xảy ra song song với trình thông dịch
++ Machine code sau đó sẽ được chuyển tới computer
+
+
+2. How code gets executed
