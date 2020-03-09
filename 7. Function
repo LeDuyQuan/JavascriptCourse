@@ -1,0 +1,7 @@
+1. Khác nhau giữa Function Expressions vs Function Declarations
+
+- Function Declarations (Function Statement)
++ Sẽ tự động hoisted to top, có thể khai báo bất cứ đâu (sử dụng trước khai báo)
+
+- Function Expressions
++ Tự động hoisted to top nhưng ko định nghĩa (ko sử dụng được trước khi khai báo)
