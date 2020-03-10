@@ -2,6 +2,24 @@
 
 - Function Declarations (Function Statement)
 + Sẽ tự động hoisted to top, có thể khai báo bất cứ đâu (sử dụng trước khai báo)
+function getName(name) {
+}
 
 - Function Expressions
 + Tự động hoisted to top nhưng ko định nghĩa (ko sử dụng được trước khi khai báo)
+const getN = function getName(name){
+}
++ getName ko còn được sử dụng và có thể remove -> anonymoú function
+
+
+2. Arrow function
++ Từ anonymous function
+const getN = function (a, b){
+  return a + b;
+}
+
+->
+const getN = (a,b) => a + b
+
++ Function returns an object
+const loadPerson = pName => ({name: pName });
