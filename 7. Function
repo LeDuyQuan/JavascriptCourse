@@ -30,3 +30,13 @@ const getN = (a,b = 0) => a + b;
 
 getN(a) or getN(a, undefined)  -> default arguments will be taken
 getN(a, null) or other falsy   -> that value would be kept
+
+
+4. Khai báo params động trong function
+const sumUp = (...numbers) => {             -> number sẽ là 1 mảng
+  let sum = 0;
+  for (const num of numbers) sum += numl
+  return sum;
+}
+
+sumUp(param1, param2, param3, param4)
