@@ -9,7 +9,7 @@ function getName(name) {
 + Tự động hoisted to top nhưng ko định nghĩa (ko sử dụng được trước khi khai báo)
 const getN = function getName(name){
 }
-+ getName ko còn được sử dụng và có thể remove -> anonymoú function
++ getName ko còn được sử dụng và có thể remove -> anonymous function
 
 
 2. Arrow function
@@ -23,3 +23,10 @@ const getN = (a,b) => a + b
 
 + Function returns an object
 const loadPerson = pName => ({name: pName });
+
+
+3. Default arguments in funtions
+const getN = (a,b = 0) => a + b;
+
+getN(a) or getN(a, undefined)  -> default arguments will be taken
+getN(a, null) or other falsy   -> that value would be kept
