@@ -32,11 +32,19 @@ getN(a) or getN(a, undefined)  -> default arguments will be taken
 getN(a, null) or other falsy   -> that value would be kept
 
 
-4. Khai báo params động trong function
+4. Khai báo params động trong function (rest operator) ES6
 const sumUp = (...numbers) => {             -> number sẽ là 1 mảng
   let sum = 0;
-  for (const num of numbers) sum += numl
+  for (const num of numbers) sum += num;
   return sum;
 }
 
 sumUp(param1, param2, param3, param4)
+
+Trước ES6 thì có dạng kiểu (với function keyword đi kèm)
+const sumUp = function() {                    or function sumUp()
+  let sum = 0;
+  for (const num of arguments) sum += num;   //argument của javascript gom cái arguments lại thành mảng
+  return sum;
+}
+
