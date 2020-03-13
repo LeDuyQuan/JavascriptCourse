@@ -48,3 +48,23 @@ const sumUp = function() {                    or function sumUp()
   return sum;
 }
 
+
+5. callback function
+const getFirst(callback) {
+  setTimeout(function () {
+    console.log('first');
+    callback();
+  }, 3000);
+}
+
+const getSecond(){
+  console.log('second')
+}
+
+getFirst(getSecond)
+-> Điều này đảm bảo sẽ in 'first' trước 'second'
+-> getSecond được truyền như 1 argument và khai báo indirectly
+
+5. bind() trong function
+- Sử dụng khi muốn truyền parameter vào indirectly function
+
