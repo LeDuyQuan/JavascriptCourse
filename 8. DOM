@@ -1,4 +1,13 @@
 1. DOM cuối cùng là mã HTML được tải và kết xuất
+ window: là đối tượng trên cùng cho phép truy cập vào tất cả các API mà browser đã cung cấp. Có nhiều API ví dụ như alert(), document  Ex: window.alert()
 
-2. Understanding DOM
-- window có nhiều API ví dụ như alert(), document  Ex: window.alert()
+
+2. Querying Elements
++ querySelector(), getElementById(): return single elements
++ querySelectorAll(), getElementsByTagName(), getElementsByClassName return collections, Nodelist
+
+3. Nodes là những object tạo nên DOM. Everything in the DOM is the nodes
+- HTML tags là element node hoặc elements
+- Text sẽ tạo thành "text nodes"
+
+4. Element: thực sự chỉ là nodes được tạo ra từ các thẻ HTML đã được hiển thị. Có properties và methods
