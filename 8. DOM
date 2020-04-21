@@ -11,3 +11,11 @@
 - Text sẽ tạo thành "text nodes"
 
 4. Element: thực sự chỉ là nodes được tạo ra từ các thẻ HTML đã được hiển thị. Có properties và methods
+
+5. 
+const node = document.getElementById('main-title')
+console.dir(node) -> properties và methods
+
+Sử dụng document.getElementsByClassName('list-item') -> ra một mảng collection (HTML Collection)
+Sử dụng document.querySelector('.list-item') -> first item
+Sử dụng document.querySelectorAll('.list-item') -> ra một mảng node (Node list)
