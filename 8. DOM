@@ -12,10 +12,15 @@
 
 4. Element: thực sự chỉ là nodes được tạo ra từ các thẻ HTML đã được hiển thị. Có properties và methods
 
-5. 
+5. Note: you can only query for element nodes
 const node = document.getElementById('main-title')
 console.dir(node) -> properties và methods
 
 Sử dụng document.getElementsByClassName('list-item') -> ra một mảng collection (HTML Collection)
-Sử dụng document.querySelector('.list-item') -> first item
+Sử dụng document.querySelector('.list-item') -> returns the first matching element in the DOM. Returns null if no matching
 Sử dụng document.querySelectorAll('.list-item') -> ra một mảng node (Node list)
+
+6.
+The main difference between an HTMLCollection and a NodeList is that one is live and one is static. 
+This means that when an element is appended (thêm vào) to the DOM, a live node will recognize the new element while a static node will not.
+
