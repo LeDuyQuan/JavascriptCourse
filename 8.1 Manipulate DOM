@@ -1,0 +1,21 @@
+1. Ex: <p id="welcome-text" class="text-default>Welcome!</p>
+const p = document.getElementById('welcome-text');
+p.textContent -> "Welcome!"
+p.Id
+p.className -> "text-default"
+
+
+2. Attributes vs Properties
+<input id="input-1" class="input-default" value="Enter text">
+       ____________ _____________________ __________________
+ 
+ Gạch dưới là attributes (attributes tranlated to properties)
+ Properties được tự động thêm vào DOM object
+ -> there we have an ID attribute and an ID property
+ -> id hoặc class khi change có thể reflect giữa attributes <=> property
+ -> value chỉ thay đổi attribute mới reflect property
+ 
+ 
+ 3. Nếu bạn muốn set value attributes bất kỳ -> input.setAttribute('value', 'text')
+ -> không update value trên UI vì phương thức này ko overwrite bất kỳ value đã change
+ update lại value: input.value = input.getAttribute('value')
