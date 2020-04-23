@@ -1,0 +1,26 @@
+1. Phương pháp di chuyển trong DOM
+<div>
+  <p>
+    A <em>test!</em>
+  </p>
+</div>
+
++ Child: direct child node or element
+Thẻ p là child của div, còn thẻ em không phải child của div
+
++ Descendant: direct or indirect child node or element
+Thẻ p và thẻ em là descendant của div
+
++ Parent: direct parent
++ Ancestor: direct or indirect parent
+
+2. Get
+Current node:
+-> parent: parentNode, parentElement, closest()
+-> child: childNodes, children, querySelector(),...
+   -> : firstChild (node có thể chứ text node), firstElementChild (only element), lastChild, lastElementChild
+   
+Note:
+const ul = document.querySelector('ul');
+ul.children -> HTML collection những element
+ul.childNodes -> Node list bao gồm tất cả node kể cả text node (các dấu tab trong HTML đc coi là text node)
