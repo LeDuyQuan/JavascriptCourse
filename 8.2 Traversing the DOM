@@ -19,8 +19,18 @@ Current node:
 -> parent: parentNode, parentElement, closest()
 -> child: childNodes, children, querySelector(),...
    -> : firstChild (node có thể chứ text node), firstElementChild (only element), lastChild, lastElementChild
+
+-> get node ông nội: em.closest('take CSS selector'  'body .test #test')
+-> get node cháu chắt: em.querySelector()
    
 Note:
 const ul = document.querySelector('ul');
 ul.children -> HTML collection những element
 ul.childNodes -> Node list bao gồm tất cả node kể cả text node (các dấu tab trong HTML đc coi là text node)
+
+Khác nhau duy nhất giữa parentNode và parentElement
+const html = document.documentElement;
+console.log(html.parentNode); // > #document
+console.log(html.parentElement); // > null
+
+
