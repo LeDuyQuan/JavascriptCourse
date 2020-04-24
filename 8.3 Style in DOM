@@ -1,0 +1,22 @@
+1. Có cách để thay đổi style cho node (element)
+const section = document.querySelector('section');
+
+a. Style property
+section.style.backgroundColor = 'black'
+
+b. className
+section.className = 'bg-color'   (bg-color được định nghĩa trong CSS)
+
+c. classList (để check chứa classname, add, remove, replace class) 
+if (section.classList.contain('invisible')) {
+  section.className = 'bg-color visible';
+} else {
+  section.className = 'bg-color invisible';
+}
+<=>
+<section class="bg-color visible">
+click() -> {
+  section.classList.toggle('invisible') -> thêm class invisible
+  section.classList.toggle('visible') -> class visible bị remove
+}
+-> có rồi thì nó bỏ, còn chưa có thì nó sẽ thêm vào
