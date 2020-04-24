@@ -18,10 +18,12 @@ Thẻ p và thẻ em là descendant của div
 Current node:
 -> parent: parentNode, parentElement, closest()
 -> child: childNodes, children, querySelector(),...
-   -> : firstChild (node có thể chứ text node), firstElementChild (only element), lastChild, lastElementChild
+   -> : firstChild (node có thể chứa text node), firstElementChild (only element), lastChild, lastElementChild
 
 -> get node ông nội: em.closest('take CSS selector'  'body .test #test')
 -> get node cháu chắt: em.querySelector()
+-> sibling (same level)
+   -> : previousSibling, nextSibling (node có thể chứa text node), previousElementSibling, nextElementSibling
    
 Note:
 const ul = document.querySelector('ul');
