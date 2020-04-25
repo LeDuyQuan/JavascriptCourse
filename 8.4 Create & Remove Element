@@ -1,0 +1,9 @@
+1. Create/ Insert element: có 2 cách
+
+a. HTML string:     innerHTML                         Add(render) HTML string
+                    insertAdjacentHTML()              Add(render) HTML string in specific position
+                    
+b. createElement()  appentChild()/ append()           Append new DOM element
+                    prepend()/ before()               Insert new DOM in 
+                    after()/ insertBefore()               specific position
+                    replaceChild()/ replaceWith()     Replace with new one
