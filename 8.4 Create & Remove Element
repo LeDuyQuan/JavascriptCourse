@@ -1,4 +1,9 @@
 1. Create/ Insert element: có 2 cách
+EX:
+const list = document.querySelector('ul')
+-> list.innerHTML = list.innerHTML + '<li>New one</li>'
+-> list.insertAdjacentHTML('afterend', '<li>New one</pli>')
+
 
 a. HTML string:     innerHTML                         Add(render) HTML string
                     insertAdjacentHTML()              Add(render) HTML string in specific position
@@ -17,3 +22,12 @@ Vấn đề thứ 2 là ko giữ đc những nội dung mà user đã nhập và
 
 Vì thể để add mới element ta nên sử dụng:
 section.insertAdjacentHTML('position','content') //  beforebegin, afterbegin, beforeend, afterend
+
+Tuy nhiên vẫn còn nhược điểm (ko truy cập trưc tiếp đc), nếu sau này muốn truy cập vào element mới tạo thì sao?
+Giả sử thêm sự kiện, thêm thử input,..
+Có thể giải quyết bằng -> div.querySelector('li **') -> phải sử dụng tới 2 bước để truy cập vào new element
+
+Sử dụng: const newLi = document.createElement('li') //luôn luôn là document.createElement('')
+list.appendChild(newLi)
+newLi.textContent = 'New one' //xử lý được nhiều hơn như newLi.style.color, add event,...
+
