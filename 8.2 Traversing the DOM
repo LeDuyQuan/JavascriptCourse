@@ -12,6 +12,7 @@ Thẻ p là child của div, còn thẻ em không phải child của div
 Thẻ p và thẻ em là descendant của div
 
 + Parent: direct parent
+
 + Ancestor: direct or indirect parent
 
 2. Get
