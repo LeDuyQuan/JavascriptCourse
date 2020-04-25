@@ -13,3 +13,7 @@ b. createElement()  appentChild()/ append()           Append new DOM element
 innerHTML: sẽ thay thế tất cả innerContent thành cái mới (xóa tất cả và thêm mới)
 Nếu muốn giữa lại nội dung cũ ta thường: section.innerHTML += '<div>New one</div>'
 Nhưng làm như vậy thì HTML sẽ rerender lại do replace toàn bộ content thành 1 content mới -> (performance)
+Vấn đề thứ 2 là ko giữ đc những nội dung mà user đã nhập vào, ví dụ như <input> khi execute innerHTML sẽ bị mất value
+
+Vì thể để add mới element ta nên sử dụng:
+section.insertAdjacentHTML('position','content') //  beforebegin, afterbegin, beforeend, afterend
