@@ -7,3 +7,9 @@ b. createElement()  appentChild()/ append()           Append new DOM element
                     prepend()/ before()               Insert new DOM in 
                     after()/ insertBefore()               specific position
                     replaceChild()/ replaceWith()     Replace with new one
+
+
+**************
+innerHTML: sẽ thay thế tất cả innerContent thành cái mới (xóa tất cả và thêm mới)
+Nếu muốn giữa lại nội dung cũ ta thường: section.innerHTML += '<div>New one</div>'
+Nhưng làm như vậy thì HTML sẽ rerender lại do replace toàn bộ content thành 1 content mới -> (performance)
