@@ -8,7 +8,7 @@ const list = document.querySelector('ul')
 a. HTML string:     innerHTML                         Add(render) HTML string
                     insertAdjacentHTML()              Add(render) HTML string in specific position
                     
-b. createElement()  appentChild()/ append()           Append new DOM element
+b. createElement()  appentChild()/ append()           Append new DOM element (last position)
                     prepend()/ before()               Insert new DOM in 
                     after()/ insertBefore()               specific position
                     replaceChild()/ replaceWith()     Replace with new one
@@ -20,8 +20,9 @@ Nếu muốn giữa lại nội dung cũ ta thường: section.innerHTML += '<di
 Nhưng làm như vậy thì HTML sẽ rerender lại do replace toàn bộ content thành 1 content mới -> (performance)
 Vấn đề thứ 2 là ko giữ đc những nội dung mà user đã nhập vào, ví dụ như <input> khi execute innerHTML sẽ bị mất value
 
+**************
 Vì thể để add mới element ta nên sử dụng:
-section.insertAdjacentHTML('position','content') //  beforebegin, afterbegin, beforeend, afterend
+list.insertAdjacentHTML('position','content') //  beforebegin, afterbegin, beforeend, afterend
 
 Tuy nhiên vẫn còn nhược điểm (ko truy cập trưc tiếp đc), nếu sau này muốn truy cập vào element mới tạo thì sao?
 Giả sử thêm sự kiện, thêm thử input,..
@@ -31,3 +32,19 @@ Sử dụng: const newLi = document.createElement('li') //luôn luôn là docume
 list.appendChild(newLi)
 newLi.textContent = 'New one' //xử lý được nhiều hơn như newLi.style.color, add event,...
 
+**************
+append vs appendChild: có thể append đoạn text và add nhiều node cùng lúc nhưng ko đc support ở IE
+prepend: add first position nhưng nhược điểm như append IE
+list.lastElementChild.before(newLi) === list.insertAdjacentHTML('beforeend', newLi) 
+(before và after ko support bởi IE và Safari)
+
+Tuy nhiên, list.insertAdjacentHTML('beforeend','<li>New one</li>') sẽ tạo ra một element mới
+còn list.lastElementChild.before(newLi) do newLi được tạo ra từ createElement() nên mọi tác động lên newLi sẽ đc cập nhật (same object)
+vì thế newLi sẽ có trạng thái mới và di chuyển từ cũ sang mới.
+
+**************
+list.firstElementChild.replaceWith(newLi)
+parentDiv.replaceChild(sp1, sp2);
+
+**************
+newLi.cloneNode(true) //default is false, nếu true sẽ clone tất cả child -> descendant
