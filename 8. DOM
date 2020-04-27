@@ -1,5 +1,8 @@
 1. DOM cuối cùng là mã HTML được tải và kết xuất
- window: là đối tượng trên cùng cho phép truy cập vào tất cả các API mà browser đã cung cấp. Có nhiều API ví dụ như alert(), document  Ex: window.alert()
+Sau khi trình duyệt đọc tài liệu HTML của bạn, nó sẽ tạo một cấu trúc được gọi là DOM
+     và xác định lại để chúng ta những developer có thể truy cập được.
+window: là đối tượng trên cùng cho phép truy cập vào tất cả các API mà browser đã cung cấp. 
+     Có nhiều API ví dụ như alert(), document  Ex: window.alert()
 
 
 2. Querying Elements
