@@ -25,5 +25,5 @@ Sử dụng document.querySelectorAll('.list-item') -> ra một mảng node (Nod
 
 6.
 The main difference between an HTMLCollection and a NodeList is that one is live and one is static. 
-This means that when an element is appended (thêm vào) to the DOM, a live node will recognize the new element while a static node will not.
+Ví dụ khi thêm 1 element mới vào (append()) thì HTMLCollection được update lại và có element mới còn NodeList thì không.
 
