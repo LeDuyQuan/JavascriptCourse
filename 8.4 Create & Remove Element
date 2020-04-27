@@ -53,5 +53,6 @@ newLi.cloneNode(true) //default is false, nếu true sẽ clone tất cả child
 
 2. Remove element
 const list = querySelector('ul');
++ list.innerHTML = ''
 + list.remove()   -> ko support by IE
 + list.parentElement.removeChild(list)   -> OK
