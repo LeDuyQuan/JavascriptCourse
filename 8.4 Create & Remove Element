@@ -43,7 +43,7 @@ còn list.lastElementChild.before(newLi) do newLi được tạo ra từ createE
 vì thế newLi sẽ có trạng thái mới và di chuyển từ cũ sang mới.
 
 **************
-list.firstElementChild.replaceWith(newLi)
+list.firstElementChild.replaceWith(newLi)     //replaceWith ko đc support by IE
 parentDiv.replaceChild(sp1, sp2);
 
 **************
