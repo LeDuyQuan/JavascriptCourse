@@ -1,0 +1,16 @@
+1. Iterable & Array-like object
++ Iterable: là từ dùng để nói đến khả năng iterate (có thể duyệt) của một đối tượng nào đó.
+
+const text = "hello"; // String là một iterable object
+for (const c of text) {
+    console.log(c);
+}
+// Output: "h" "e" "l" "l" "o"
+
++ Array-like object: một object có một thuộc tính là lengh và ko có Prototype Methods của một Array (có thể duyệt từng phần tử)
+Ex: NodeList, String
+
+2. Create array: new Array(), Array.of(), Array.from()
++ Array.from: có thể được dùng để convert từ array-like sang real array
+const listItem = document.querySelector('li');
+const arrayListItem = Array.fromt(listItem);
