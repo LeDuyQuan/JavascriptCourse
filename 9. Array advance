@@ -14,3 +14,8 @@ Ex: NodeList, String
 + Array.from: có thể được dùng để convert từ array-like sang real array
 const listItem = document.querySelector('li');
 const arrayListItem = Array.fromt(listItem);
+
++ arrayItems.push()
++ arrayItems.unshift();
++ arrayItems.pop(): xóa phần tử cuối cùng
++ arrayItems.shift(): xóa phần tử đầu tiên -> nó dịch chuyển tất cả các phần tử trong mảng một nơi sang trái
