@@ -53,3 +53,8 @@ slice(2) -> từ vị trí index 2 đến cuối mảng
 5. Concat
 Cũng cần như push nhưng input là mảng
 Dùng để nối 2 mảng lại và trả về 1 mảng mới (vùng nhớ mới)
+
+
+6. indexOf & lastIndexOf
++ indexOf(): get index of element (stopped once it found the first element)
++ lastIndexOf: get index (cuối cùng)
