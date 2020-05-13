@@ -58,3 +58,9 @@ Dùng để nối 2 mảng lại và trả về 1 mảng mới (vùng nhớ mớ
 6. indexOf & lastIndexOf
 + indexOf(): get index of element (stopped once it found the first element)
 + lastIndexOf: get index (cuối cùng)
+
+
+7. sort
+const arr = [1,87,5,4,9,4]
+const result = arr.sort((a, b) => a - b)   
+//Lần chạy ban đầu a là 87, b là 1  -> nếu a > b return 1 
