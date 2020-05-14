@@ -1,0 +1,26 @@
++ accessToken: là 1 chuỗi mã hóa, claim (tương tự encode, decode) các thông tin của user (email, password)
+Thường đặt expires ngắn (~30m) để tránh truy cập trái phép
+
++ Nếu trong trường hợp người dùng đăng xuất nhưng accessToken được đặt dài hạn, 
+thì accessToken này cần được revoke bằng cách lưu lại vào blacklist accessToken (accessToken ko sử dụng đc nữa)
+-> sinh ra refreshToken
+
++ Access token là ngắn hạn, vì vậy refresh token(dài hạn) đảm nhiệm việc lấy lại access token khi hết hạn mà 
+không bắt buộc user phải xác thực lại.
++ Khi user đăng xuất, đơn giản chỉ việc xóa refresh token, việc lấy 1 access token mới khi dùng refresh token 
+sẽ không được cho phép nữa.
+
++ Để tránh trường hợp dù vẫn request hằng ngày nhưng refresh token hết hạn 
+-> buộc user phải xác thực lại, thì khi dùng refresh token để tạo ra access token mới cũng sẽ tạo ra 1 refresh token mới, 
+còn nếu lâu ngày không sử dụng ứng dụng (không request server) đến thời điểm refresh token hết hạn thì user sẽ bị logout.
+
+Work flow:
+1. Client request accessToken và refreshToken lên Auth Server
+2. Auth Server trả về response accessToken và refreshToken. Client sẽ store accessToken và refreshToken lại trên localStorage
+3. Client request API với accessToken
+4. Resource Server trả về data
+5. Khi accessToken expire thì Client sử dụng refreshToken để request new accessToken và refreshToken lên Auth Server
+6. Auth Server trả về response accessToken và refreshToken. Client sẽ store new accessToken và refreshToken lại trên localStorage
+7. Client request API với new accessToken
+8. Resource Server trả về data
+9. Nếu ko có request API lên Resource Server nữa thì khi refreshToken expire sẽ logout
