@@ -1,0 +1,21 @@
+1. split() and join()
++ split(';'): chuyển đổi string thành array
++ join(' '): chuyển đổi array thành string
+
+
+2. Spread operator (toán tử ...)
+-> Pull các element trong mảng hoặc object ra
++ Dùng để clone array
++ Dùng cho những methord không chấp nhận param là array: Math.min(...arr)
+
+Note:
+Với 1 mảng object như const people = [{name: 'Quan', age: 18}, {name: 'Vi', age: 20}]
+const cloneArr = [...people]
+-> mảng cloneArr là copy của people tuy nhiên nó copy tất cả địa chỉ của các object trong mảng people
+-> object trong new array vẫn là nhưng object trong old array -> các reference object
+
+Vậy muốn clone hoàn toàn thì: const cloneArr = people.map(x=>({...x}))
+-> vì map cũng tạo ra 1 array mới nên ko cần [...people]
+
+
+3. Array destructuring
