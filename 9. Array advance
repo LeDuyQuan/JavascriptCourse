@@ -68,3 +68,20 @@ const result = arr.sort((a, b) => a - b)
 
 8. reduce (the idea always is that you reduce an array to a simpler value) reduce any array to any value
 Có thể hiểu: reduce (giảm) 1 mảng các chữ số thành tổng của các số này
+Ex:
+const arr = [4,87,5,4,9,4]
+const result = arr.reduce((previousVal, currentVal) => previousVal + currentVal) 
+- Lần chạy đầu tiên: previousVal là 0 và currentVal là 4
+- Lần chạy thứ 2: previousVal là 4 và currentVal là 87
+- Lần chạy thứ 3: previousVal là 91 và currentVal là 5
+-> previousVal sẽ là kết quả của lần chạy trước đó
+arr.reduce((a,b) => a + b, 0) : 0 là giá trị previousVal của lần chạy đầu tiên
+
+Ex 2:
+const originalArray = [{price: 10.99}, {price: 5.99}, {price: 29.99}];
+const sum = originalArray.reduce((sumVal, curVal) => sumVal + curVal.price, 0);
+
+Ex 3: Have a more complex extraction logic -> leverage method chaining:
+const originalArray = [{price: 10.99}, {price: 5.99}, {price: 29.99}];
+const sum = originalArray.map(obj => obj.price)
+    .reduce((sumVal, curVal) => sumVal + curVal, 0);
