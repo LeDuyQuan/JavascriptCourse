@@ -19,3 +19,14 @@ Vậy muốn clone hoàn toàn thì: const cloneArr = people.map(x=>({...x}))
 
 
 3. Array destructuring
+const people = [{name: 'Quan', age: 18}, {name: 'Vi', age: 20}]
+//const quan = people[0]
+//const vi = people[1]
+-> const [quan, vi] = people;
+
+sử dụng spread operator để tạo mảng chứa những object còn lại
+-> const [quan, vi, ...otherObjects]
+
+const person = ''
+[person] = people;
+=> person: {name: 'Quan', age: 18}
