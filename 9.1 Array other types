@@ -30,3 +30,14 @@ sử dụng spread operator để tạo mảng chứa những object còn lại
 const person = ''
 [person] = people;
 => person: {name: 'Quan', age: 18}
+
+
+4. Set and Map
++ Set: 
+- Sắp xếp của các element không đc đảm bảo
+- Duplicate không cho phép
+- No index to access
+
++ Map:
+- Cho phép store dưới dạng key - value giống object
+- Có thể lưu key là string, array hoặc object,...
