@@ -38,6 +38,34 @@ const person = ''
 - Duplicate không cho phép
 - No index to access
 
+const ids = new Set(['Hi', 'from', 'Set'])
+for (const entry of ids.entries){
+  console.log(entry[0]);
+}
+
 + Map:
 - Cho phép store dưới dạng key - value giống object
 - Có thể lưu key là string, array hoặc object,...
+
+Ex:
+const person1 = {name: 'Quan'}
+const person2 = {name: 'Duy'}
+- you want to attach some extra information to each person but dont want to merge it into object (vì sử dụng nhiều nơi khác nữa)
+
+const personData = new Map([[persion1, [{date: 'yesterday'}]]])
+personData.set(person2, [{date: 'today'}])
+personData.get(person2)
+
+for (const [key, value] of personData.entries()) {
+  console.log(key, value)
+}
+
+for (const key of personData.keys()) {
+  console.log(key)
+}
+
+for (const value of personData.values()) {
+  console.log(value)
+}
+
+personData.size()
