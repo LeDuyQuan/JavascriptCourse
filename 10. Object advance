@@ -1,0 +1,13 @@
+Objects are reference values
+
+1. Adding, modifu and delete
+const people = {
+  name: 'Quan',
+  age: 18
+}
+
+people.address = '35 NH' -> adding
+
+NULL and undefined
+Nếu set people.abc = null nghĩa là object people có property là abc chưa có value
+Nếu set people.abc = undefined có nghĩa là people không có thuộc tính abc (về mặt kỹ thuật)
