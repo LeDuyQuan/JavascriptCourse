@@ -16,14 +16,22 @@ someButton.addEventListener('click', add()); => wrong
 Vì javasript sẽ đọc và thực thi dòng đó ngay lập tức
 
 
-3. Typeof
+3. Types of values in JS
+Have two types of values - primitive values and reference values
++ Primitive values: string, boolean, number, null, symbol
++ Reference values: object, array, DOM nodes,...
+const a = ??
+const b = a (khi a thay đổi nếu b thay đổi thì reference vì b lưu vùng nhớ của a)
+
+
+4. Typeof
 typeof NaN -> number
 typeof [1 , 2, 3] -> object
 typeof undefined -> undefined
 typeof null -> object
 
 
-4. Javascript async và defer
+5. Javascript async và defer
 <script defer src="script.js"> 
 <script async src="script.js">  
 Nếu script là 1 module tách biệt, không phụ thuộc vào script nào khác thì nên sử dụng async cho load và execute với trang luôn
