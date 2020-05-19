@@ -1,6 +1,6 @@
 Objects are reference values
 
-1. Adding, modifu and delete
+1. Adding, modify and delete
 const people = {
   name: 'Quan',
   age: 18
