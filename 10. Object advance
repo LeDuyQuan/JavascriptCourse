@@ -41,4 +41,26 @@ const people = {
 
 -> people[dynamicName]
 
-3.
+
+4. Loop
+const object = { a: 1, b: 2, c: 3 };
+
+for (const property in object) {
+  console.log(`${property}: ${object[property]}`);
+}
+
+
+5. Spread operator
+const people = {
+  name: 'Quan',
+  hobbies: ['Sport', 'Cooking']
+}
+
+Nếu muốn copy thì dùng spread operator (vì object là reference value)
+const people1 = {...people}
+
+Tuy nhiên array hobbies trong object people cũng là reference value nên sẽ không đc clone (same in memory)
+-> const people1 = {...people, hobbies: [...people.hobbies]}
+
+
+
