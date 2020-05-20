@@ -79,3 +79,10 @@ sử dụng spread operator để tạo object chứa những properties còn l�
 
 Nếu muốn thay đổi tên field:
 -> -> const { name: nameObject, age } = people;
+
+
+8. Check a property exist
+const { name, ...others } = people;
+-> if (!name)
+-> if (people.name !== undefined)
+-> if (!('name' in people))
