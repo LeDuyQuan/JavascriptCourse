@@ -27,7 +27,7 @@ const people = [{name: 'Quan', age: 18}, {name: 'Vi', age: 20}]
 sử dụng spread operator để tạo mảng chứa những object còn lại
 -> const [quan, vi, ...otherObjects]
 
-const person = ''
+let person = ''
 [person] = people;
 => person: {name: 'Quan', age: 18}
 
