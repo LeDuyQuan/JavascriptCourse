@@ -63,4 +63,19 @@ Tuy nhiên array hobbies trong object people cũng là reference value nên sẽ
 -> const people1 = {...people, hobbies: [...people.hobbies]}
 
 
+6. Object.assign(object1, object2)
++ object2 được merge vào object1
++ Copy: Object.assign({}, object) <=> {...object}
 
+
+7. Object destructuring
+const people = {name: 'Quan', age: 18, address: 'NTS'}
+//const name = people.name
+//const age = people.age
+-> const { name, age } = people;
+
+sử dụng spread operator để tạo object chứa những properties còn lại
+-> const { name, ...others } = people;
+
+Nếu muốn thay đổi tên field:
+-> -> const { name: nameObject, age } = people;
