@@ -1,1 +1,23 @@
-.
+1. Introducing "this"
+
+Có thể bổ sung vào object 1 func tăng độ linh hoạt cho object
+const people = {
+  name: 'Quan',
+  age: 18.
+  getName: function() {          //or getName() {
+    return this.name.toUpperCase();
+  }
+}
+
+-> const name = people.getName();  //như vậy this trong getName sẽ refer people object
+
+Nếu:
+let { getName } = people;
+-> const name = getName();  //như vậy this sẽ refer global object   -> error
+
+->
+getName = getName.bind(people);
+const name = getName();
+
+
+
