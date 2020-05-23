@@ -15,9 +15,16 @@ Nếu:
 let { getName } = people;
 -> const name = getName();  //như vậy this sẽ refer global object   -> error
 
-->
-getName = getName.bind(people);
+-> sử dụng bind
+getName = getName.bind(people); // return new func object
 const name = getName();
 
+-> sử dụng call
+const name = getName.call(people) // execute right away
+
+***
+- bind(): chuẩn bị 1 func cho lần thực thi trong tương lai, return về 1 NEW func object
+- call(): thực thi func ngay lập tức
+- apply(): như call() // apply thêm params bằng apply(people, [param2, param3]) và call(people, param2, param3)
 
 
