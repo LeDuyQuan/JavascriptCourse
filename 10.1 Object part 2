@@ -22,9 +22,30 @@ const name = getName();
 -> sử dụng call
 const name = getName.call(people) // execute right away
 
-***
+
+2. Bind, call và apply
 - bind(): chuẩn bị 1 func cho lần thực thi trong tương lai, return về 1 NEW func object
 - call(): thực thi func ngay lập tức
 - apply(): như call() // apply thêm params bằng apply(people, [param2, param3]) và call(people, param2, param3)
+
+
+3. Arrow function with "this"
+Arrow func dont know "this" keyword
+const example = () => {console.log(this)}
+example.call(people) -> sẽ refer đến this của global object
+
+Another example:
+const member = {
+  teamName: 'QD',
+  getMember() {
+    this.people.forEach(p => {
+      console.log(this)   // refer to "member" vì arrow func ko thay đổi binding của this
+    })
+  },
+  getTeam(){
+    this.people.forEach(function() {
+      console.log(this)   // refer to "global object" vì function() thực thi thay cho forEach mà 
+    })                        forEach ko thực hiện bất kỳ việc binding nào -> global default  
+}
 
 
