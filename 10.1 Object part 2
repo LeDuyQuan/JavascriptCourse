@@ -34,9 +34,19 @@ Arrow func dont know "this" keyword
 const example = () => {console.log(this)}
 example.call(people) -> sẽ refer đến this của global object
 
-Another example:
+
+const member() {
+  console.log(this)  // refer to global object
+}
+
 const member = {
   teamName: 'QD',
+  getString() {
+    console.log(this)     // refer to "member"
+  },
+  greet: () => {
+        console.log(this.name);  // refer to global object
+  },
   getMember() {
     this.people.forEach(p => {
       console.log(this)   // refer to "member" vì arrow func ko thay đổi binding của this
