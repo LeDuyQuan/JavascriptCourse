@@ -59,3 +59,20 @@ const member = {
 }
 
 
+4. getter and setter  (Dùng để thêm validation hoặc thay đổi hình thức value trả về)
+const member = {
+  set title(val){
+    if(val.trim() === '') {
+      this._title = 'DEFAULT';
+      return;
+    }
+    this._title = val;
+  },
+  get title(){
+    return this._title || '';
+  }
+}
+
+Because setters and getters are a special kind of property -> execute like this
+-> member.title = 'Quan dep trai'  // set value, not member.title('Quan dep trai')
+-> member.title  // get value
