@@ -1,0 +1,25 @@
+1. https://github.com/LeDuyQuan?page=1&size=10
++ schema: https://
++ host: github.com
++ path: LeDuyQuan
++ query: page=1&size=10
+
+
+2. const setPeople(name, age){} -> setPeople(agrName, agrAge)
++ parameters: name, age
++ agruments: agrName, ageName
+
+
+3. const people = {
+  name: 'Quan',
+  age: 12
+}
++ object: people
++ properties: name, age
+
+
+4. <input id="test-id" name="test-name" type="text" value="Test Value">
++ attribute: id, name, type, value
++ Khi trình duyệt tải mã HTML của trang, console.dir() sẽ xuất hiện properties
+
+
