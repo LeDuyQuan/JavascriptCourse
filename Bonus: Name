@@ -36,8 +36,10 @@
     return this.title;
   }
 }
-+ field: title, imageUrl, description
++ field (class field): title, imageUrl, description
++ class property: this.title (trong constructor)
 + method: getTitle
+
 Note: when create object based on a class: field -> property, method -> function
 Vì class ko phải là thứ ta trực tiếp làm việc, it's just a blueprint to define an object, những gì trở thành property của 1 object
 sẽ gọi là field, tương tự method
