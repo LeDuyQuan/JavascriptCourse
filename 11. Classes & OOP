@@ -1,1 +1,16 @@
++ Classes allow us to build objects in an easier way and to define blueprints (bản thiết kế) for objects. (define how objects look like)
 
+class Product {
+  title = 'Product';     // Dùng "=" thay vì ":", dùng ";" thay vì ","
+  
+  constructor(title) {   // là 1 method đặc biệt sẽ chạy ngay khi new 1 instance
+    this.title = title;  
+  }
+}
+
+Trong constuctor có thể add properties, vì thế có thể remove field phía trên thành:
+class Product {
+  constructor(title) {
+    this.title = title;
+  }
+}
