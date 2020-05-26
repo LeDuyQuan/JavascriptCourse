@@ -1,13 +1,13 @@
-1. https://github.com/LeDuyQuan?page=1&size=10
+1. https://github.com/LeDuyQuan/now?page=1&size=10
 + schema: https://
 + host: github.com
-+ path: LeDuyQuan
++ path: LeDuyQuan/now
 + query: page=1&size=10
 
 
-2. const setPeople(name, age){} -> setPeople(agrName, agrAge)
+2. const setPeople(name, age){} -> setPeople('Quan', 18)
 + parameters: name, age
-+ agruments: agrName, ageName
++ agruments: 'Quan', 18
 
 
 3. const people = {
@@ -23,3 +23,21 @@
 + Khi trình duyệt tải mã HTML của trang, console.dir() sẽ xuất hiện properties
 
 
+5. class Product = {
+  title = 'Pro';
+  imageUrl;
+  description = 'Nice';
+  
+  constructor(title) {   //special method
+    this.title = title;
+  }
+  
+  getTitle() {
+    return this.title;
+  }
+}
++ field: title, imageUrl, description
++ method: getTitle
+Note: when create object based on a class: field -> property, method -> function
+Vì class ko phải là thứ ta trực tiếp làm việc, it's just a blueprint to define an object, những gì trở thành property của 1 object
+sẽ gọi là field, tương tự method
