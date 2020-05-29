@@ -1,4 +1,4 @@
-+ Classes allow us to build objects in an easier way and to define blueprints (bản thiết kế) for objects. (define how objects look like)
+1. Classes allow us to build objects in an easier way and to define blueprints (bản thiết kế) for objects. (define how objects look like)
 
 class Product {
   title = 'Product';     // Dùng "=" thay vì ":", dùng ";" thay vì ","
@@ -13,4 +13,11 @@ class Product {
   constructor(title) {
     this.title = title;
   }
+  addTitle() {      //method
+  }
+}
+
+2. Kế thừa
+//just can only extends from one class
+class Item extends Product {
 }
