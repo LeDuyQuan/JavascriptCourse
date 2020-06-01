@@ -21,3 +21,8 @@ class Product {
 //just can only extends from one class
 class Item extends Product {
 }
+
+
+3. super()
++ Sử dụng super để thực thi contructor của parent (có thể truyền params)
++ Cần phải được gọi trước khi sử dụng từ khóa "this" ở lớp kế thừa (sub-class)
