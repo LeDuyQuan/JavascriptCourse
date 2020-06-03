@@ -1,0 +1,29 @@
+This is behind the scenes of classes & OOP
+
+1. Introducing Constructor functions
+With class
+class Person {
+  name: 'Quan',
+  constructor() {
+    this.age = 16
+  }
+  getInfo(){
+    console.log(this.name + ' ' + this.age)
+  }
+}
+
+Nhưng bản chất của nó thực sự là:
+function Person() {   // Vẫn viết hoa từ cái đầu để phân biệt với những function bình thường khác (chỉ là quy ước)
+  this.name = 'Quan',
+  this.age = 16,
+  this.getInfo = function(){
+    console.log(this.name + ' ' + this.age)
+  }
+}
+
+const person = new Person(); // vẫn gọi với từ khóa new giống với class
+person.getInfo()
+
+Nếu chúng ta: const person = Person(), sẽ là thực thi 1 function, mà function này không return về giá trị nào 
+      -> sẽ ko hiểu person.getInfo()  <=> undefined.getInfo()
+Behind the scenes của "new" keyword sẽ là return this;
