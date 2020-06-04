@@ -29,7 +29,27 @@ Nếu chúng ta: const person = Person(), sẽ là thực thi 1 function, mà fu
 Behind the scenes của "new" keyword sẽ là return this;
 
 
+2. Prototype
+- Prototype được tạo tự động khi khởi tạo instance bằng contructor function
+- Được phục vụ như 1 object dự phòng
+Ex:
+- Object person có "name" và "greet()"
+-> person.sayHello()
+- Javascript sẽ ko báo lỗi ngay mà sẽ access trong person's prototype (prototype cũng là 1 object) 
+ để tìm xem có function sayHello() hay không
+
 
 3. __proto__ trong object
 Mỗi object ngoài bao gồm các properties sẽ có 1 invisible base object tên "__proto__"
 It's not really a property, bạn có thể gán giá trị cho nó nhưng khuyến cáo là ko nên
+
+
+4. prototype trong function object
+Ta đã biết tất cả những đối tượng như string, function, array đều là object
++ __proto__ sẽ có mặt trên mọi object trong javascript bất kể array, object, hay function,...
++ prototype sẽ chỉ xuất hiện trong function object (contructor function). 
+Những gì chúng ta tạo properties hay function trong prototype này sẽ được truyền cho những object được xây dựng trên
+Ex: 
+const person = new Person()
+console.log(person.__proto__ === Person.prototype) 
+-> true   //same object in memory
