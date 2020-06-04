@@ -27,3 +27,9 @@ person.getInfo()
 Nếu chúng ta: const person = Person(), sẽ là thực thi 1 function, mà function này không return về giá trị nào 
       -> sẽ ko hiểu person.getInfo()  <=> undefined.getInfo()
 Behind the scenes của "new" keyword sẽ là return this;
+
+
+
+3. __proto__ trong object
+Mỗi object ngoài bao gồm các properties sẽ có 1 invisible base object tên "__proto__"
+It's not really a property, bạn có thể gán giá trị cho nó nhưng khuyến cáo là ko nên
