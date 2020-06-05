@@ -53,3 +53,17 @@ Ex:
 const person = new Person()
 console.log(person.__proto__ === Person.prototype) 
 -> true   //same object in memory
+
+
+5. Set up on fallback object
+Person.prototype = {
+  printAge(){
+    console.log(this.age)
+  }
+}
+
+const p = new Person()
+-> p.printAge() -> it's work, từ khóa "this.age" đc refer tới p (tới object gọi phương thức)
+
+Đối với class Person extends "something"{} // tức là muốn set prototype của Person thành 1 object mới
+                                              hoặc thêm properties or method cho prototype
