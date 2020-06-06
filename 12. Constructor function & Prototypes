@@ -56,6 +56,14 @@ console.log(person.__proto__ === Person.prototype)
 
 
 5. Set up on fallback object
+function Person() {
+  this.name = 'Quan',
+  this.age = 16,
+  this.getInfo = function(){
+    console.log(this.name + ' ' + this.age)
+  }
+}
+
 Person.prototype = {
   printAge(){
     console.log(this.age)
