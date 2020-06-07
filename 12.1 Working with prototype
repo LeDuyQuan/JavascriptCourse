@@ -1,0 +1,73 @@
+1. Nếu sử dụng contructor function
+function Person() {
+  this.name = 'Quan';
+  this.age = 27;
+  this.greet = function(){
+    console.log(this.name + this.age)
+  }
+}
+
+//Đây là replace prototype
+Person.prototype = {
+  printAge(){
+    console.log(this.age)
+  }
+}
+//Chuyển thành
+Person.prototype.printAge = function(){
+  console.log(this.age)
+}
+
+const p = new Person()
+console.log(p.__proto__);
+-> {
+  printAge(){
+    ...
+  }
+}
+
+
+2. Nếu sử dung class:
+class AgePerson {
+  printAge() {
+    console.log(this.age)
+  }
+}
+
+class Person extends AgePerson {
+  name = 'Quan';
+  constructor(){
+    super()   //Là lớp con, khi sử dụng contructor thì super() phải đc khai báo (trước từ khóa this) 
+    this.age = 27;
+  }
+  greet(){
+    console.log(this.name + this.age)
+  }
+}
+
+const p = new Person()
+console.log(p.__proto__);
+-> {
+  contructor
+  greet      //hiển thị method trong __proto__ (khác vs contructor function)
+  __proto__ {
+    contructor
+    printAge
+  }
+}
+
+Note: Nó liên quan đến cách Javascript thêm các method vào objects, 
+nó thực hiện điều này hơi khác với classes so với contructor function.
+Khi new 1 object dựa vào class thì JS sẽ thêm các method vào prototype (__proto__)
+
+Giải thích: ban đầu sẽ tạo 1 object dựa trên AgePerson sau đó set vào prototype của object dựa trên Person
+sẽ thành: 
+__proto__ {
+  contructor
+  greet()
+  __proto__ {
+    contructor
+    printAge()
+  }
+}
+
