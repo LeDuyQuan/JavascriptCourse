@@ -1,4 +1,5 @@
 This is behind the scenes of classes & OOP
+Contructor function là 1 function được gọi cùng với từ khóa new để tạo ra 1 object dựa trên nó.
 
 1. Introducing Constructor functions
 With class
