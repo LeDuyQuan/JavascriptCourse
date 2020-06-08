@@ -71,3 +71,14 @@ __proto__ {
   }
 }
 
+
+3. Prototype chain and Global object
+Thực tế khi access 1 method hay 1 property như p.length, JS sẽ tìm trong Person, ko có sẽ tìm tiếp trong prototype (fallback value), 
+ko có lại tìm đến fallback value của object (prototype). Vậy fallback object cuối cùng có length là gì?
+Nó ko phải là global object, global object ko là fallback object của bất kỳ object nào.
+
+-> The fallback object của tất cả object chính là object.prototype
+Nhớ rằng prototype property xuất hiện trong tất cả contructor function, vì thế object là 1 contructor function
+
+Vậy điểm kết thúc của prototype chain là tại object.prototype
+-> Object.prototype.__proto__ -> null
