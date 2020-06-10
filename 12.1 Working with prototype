@@ -82,3 +82,12 @@ Nhớ rằng prototype property xuất hiện trong tất cả contructor functi
 
 Vậy điểm kết thúc của prototype chain là tại object.prototype
 -> Object.prototype.__proto__ -> null
+
+
+4. Quay lại với vấn đề ở mục 2
+Khi tạo 1 instance (object) từ Person thì object chỉ chứa 2 properties "name" và "age" và các method thì nằm trong prototype
++ name: JS sẽ tự động gọi name sau từ khóa super, và nó hoạt động tương tương với this.age trong contructor
+Idea của JS là các properties của instance thường được gán giá trị còn method thì ko change giữa các instance
+vì thế JS tối ưu hóa các method để đảm bảo khi tạo 1 instance mới thì chúng sẽ cùng chung 1 prototype
+-> method greet() sẽ không được tạo nhiều lần trên từng instance
+-> object sẽ đc tạo ra nhỏ hơn -> sử dụng ít bộ nhớ hơn -> tăng performance
