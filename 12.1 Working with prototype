@@ -91,3 +91,27 @@ Idea của JS là các properties của instance thường được gán giá tr
 vì thế JS tối ưu hóa các method để đảm bảo khi tạo 1 instance mới thì chúng sẽ cùng chung 1 prototype
 -> method greet() sẽ không được tạo nhiều lần trên từng instance
 -> object sẽ đc tạo ra nhỏ hơn -> sử dụng ít bộ nhớ hơn -> tăng performance
+
+Mặc dù vậy, vẫn sẽ có những trường hợp cần khai báo function (arrow func) trong class thay vì method
+class Person {
+  name = 'Quan';
+  constructor(){
+    this.age = 27;
+  }
+  greet1 = () => { 
+    console.log(this.name + this.age)
+  }
+  //greet2(){ 
+  //  console.log(this.name + this.age)
+  //}
+}
++ greet1 trong case này sẽ ko còn trong prototype của mỗi instance nữa 
+Nhưng từ khóa this trong greet1 sẽ refer đến class Person
+Ex:
+const button = document.getElementById('btn')
+button.addEventListener('click', p.greet)
++ Nếu sử dụng greet2 thì this sẽ refer đến button và cần phải thêm p.greet.bind(p)
+-> khó đọc hiểu -> sử dụng greet1 mặc dù sử dụng bind sẽ tốn ít chi phí hơn
+-> bind sẽ tốt hơn nhưng greet1 có thể sử dụng nếu không tạo cả ngàn instance
+
+=> từ đây nghiệm ra được sự khác nhau giữa method và function
