@@ -115,3 +115,23 @@ button.addEventListener('click', p.greet)
 -> bind sẽ tốt hơn nhưng greet1 có thể sử dụng nếu không tạo cả ngàn instance
 
 => từ đây nghiệm ra được sự khác nhau giữa method và function
+
+
+5. Getting & setting prototype
+Với việc set giá trị cho prototype bằng cách gán __proto__ thì nó ko official
++ Get: Object.getPrototypeOf(p)
++ Set: Object.setPrototypeOf(p. {  //sẽ overide prototype
+  ...Object.getPrototypeOf(p)  //gán lại prototype
+  greet: function(){
+    console.log('')
+  }
+  
++ Set property: 
+Object.defineProperties(p, {
+  name: {value: 'Quan', ...}, // có thể confid đọc và ghi
+  age: {value: 12, ...}
+})
+
++ Set property và prototype
+const p = Object.create
+})
