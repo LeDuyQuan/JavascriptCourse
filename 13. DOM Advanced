@@ -1,0 +1,16 @@
+1. Dataset: dùng để store data trên DOM
+<div id="123" data-user-info="" data-salary=""></div>
+-> const getData = document.getElementById('123')
+-> getData.dataset.userInfo
+
+
+2. Xác định tọa độ của node
++ click vào Element trong F12
++ vào console -> $0.getBoundingClientRect()
+Hệ trục khi render page sẽ là 
+x-axis from left to right
+y-axis from top to bottom
+
++ $0.clientWidth clientHeight, cliendTop, clientLeft: tính inner without border
++ window.innerWidth, window.innerHeight // có thể chứa cả thành scrollbar
++ document.documentElement.clientWidth, document.documentElement.clientHeight
