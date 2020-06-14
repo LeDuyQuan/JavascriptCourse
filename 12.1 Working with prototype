@@ -133,5 +133,15 @@ Object.defineProperties(p, {
 })
 
 + Set property và prototype
-const p = Object.create
-})
+const p = Object.create({
+  greet: function(){ //prototype
+    console.log()
+  }
+},
+{
+  name: {value: 'Quan', can get set,...}, //property
+  age: {value: 15}
+}
+)
+Khá là phức tạp cho việc tạo 1 object nhưng nó đem lại nhiều tính năng tùy chỉnh hơn
+
