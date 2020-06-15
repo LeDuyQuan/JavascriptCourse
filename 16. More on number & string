@@ -1,0 +1,18 @@
+1. Number
+Every number is a float
+Maximum number Number.MAX_SAFE_INTEGER (64 bits)
+
+Xử lý với decimal number
+Ta có: 0.4 + 0.6 !== 0.6
++ 4.4 và 0.6 được lưu dưới dạng nhị phân và khi hiển thị lên lại thì JS đã làm tròn (có thể (0.4).toFixed(100) sẽ thấy)
+-> Đó là do sự chuyển đổi sang nhị phân của các integer trong JS cụ thể là decimal -> cộng 2 kết quả ko chính xác
+                                                                                   -> trả về kết quả ko chính xác
+                                                                                   
+Như vậy nếu muốn cộng 2 số decimal cho ra kết quả hoàn hảo thì nên convert nó thành dạng integer (.0) (trong JS chỉ có float)
+Bằng cách: sử dụng thư viện hoặc *100, * 1000
+
+
+*** Nếu nhu cầu sử dụng quá maximum number ta có BigInt (ko khai báo decimal number đc) -> thêm chữ 'n' phía sau
+Khai báo: const num = 456465464646n
+parseInt(10n) - 4 = 6
+10n - BigInt(4) = 6n
