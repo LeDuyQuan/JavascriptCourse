@@ -16,3 +16,6 @@ Bằng cách: sử dụng thư viện hoặc *100, * 1000
 Khai báo: const num = 456465464646n
 parseInt(10n) - 4 = 6
 10n - BigInt(4) = 6n
+
+
+*** Math và Integer global
