@@ -19,3 +19,31 @@ parseInt(10n) - 4 = 6
 
 
 *** Math và Integer global
+
+
+2. String
+Có 3 cách tạo string: "", '' và ``
+- Tagged template (with ``)
+function productDes(strings, proName, proPrice){
+  let priceCategory = 'cheap';
+  if (proPrice > 20) {
+    priceCategory = 'fair'
+  }
+  return `${strings[0]}${proName}${strings[0]}${priceCategory}${strings[2]}`
+}
+
+const product = productDes`This product ${name} is ${price}`
+
+
+3. Regular expressions (to verify a string)
+- Tạo 1 partern cho đoạn string. Khai báo trong dấu //
+- Ví dụ: partern cho email là const regex = /^\S+@\S+\.\S+$/
+
++ ^: start from the left
++ \S: any kind of word
++ +@: muốn có biểu tượng @
++ +\.: thêm dấu .   // phải thêm dấu \ vì . đc hiểu là any character
++ +$: end this string
+
+Sử dụng: regex.test('abc@th.vn') => true
+Dùng regex.exec('kaka') để xác định index của từ matched
