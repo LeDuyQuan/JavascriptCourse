@@ -49,20 +49,20 @@ const sumUp = function() {                    or function sumUp()
 }
 
 
-5. callback function
+5. callback function: Là 1 function được truyền vào 1 function khác dưới hình thức argument (param)
 const getFirst(callback) {
   setTimeout(function () {
-    console.log('first');
-    callback();
+    const name = getInput();
+    callback(name);
   }, 3000);
 }
 
-const getSecond(){
-  console.log('second')
+const getSecond(name){
+  console.log(name)
 }
 
 getFirst(getSecond)
--> Điều này đảm bảo sẽ in 'first' trước 'second'
+-> Điều này đảm bảo biến name sẽ có được giá trị để truyền vào getSecond
 -> getSecond được truyền như 1 argument và khai báo indirectly
 
 5. bind() trong function
