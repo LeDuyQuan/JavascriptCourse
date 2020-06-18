@@ -124,13 +124,15 @@ const duaGaiDiNhaNghi = (isDiChoi) => {
     })
 }
 
-muaXeSH(20)
-.then(data => choGaiDiChoi(data))
-.then(data => duaGaiDiNhaNghi(data))
-.then(data => {
-    console.log(data)
-})
-
+function ketQua() {
+    muaXeSH(20)
+    .then(data => choGaiDiChoi(data))
+    .then(data => duaGaiDiNhaNghi(data))
+    .then(data => {
+        console.log(data)
+    })
+}
+ketQua()
 
 
 6. Promise Error handling
