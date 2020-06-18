@@ -131,6 +131,22 @@ muaXeSH(20)
     console.log(data)
 })
 
+
+
+6. Promise Error handling
+API từ server có thể sẽ trả về lỗi như network, logic, database,...
+Vậy chúng ta sẽ return về nếu có lỗi bằng cách sử dụng reject() function
+Ở dưới nơi thực thi promise chain: ta thêm catch() vào bất cứ đâu trong cái chuỗi này (vị trí ko là vấn đề) miễn là SAU BLOCK BỊ LỖI
+Vì khi promise nào bị reject (tức là khi có lỗi ở cái then() nào) thì catch() sẽ được run
+Nhưng catch() block này sẽ không cancel toàn bộ promise chain này và any then() xuất hiện sau thì tiếp tục run tiếp, bạn có thể return
+về giá trị nào đó để then() block tiếp tục work
+Vì vậy muốn cancel cái promise chain khi có bất kỳ error nào, thì mình phải bỏ dưới cuối cùng
+Tuy nhiên tùy mục đích mà sử dụng, có những trường hợp đặc biệt không nhất thiết đánh sập nguyên chuỗi hoạt động này
+chỉ vì một phần thất bại nhỏ nào đó.
+Nhưng nếu then() block cuối có lỗi thì catch() ở trên nó sẽ ko làm gì cả, bạn sẽ cần add thêm catch() mới
+
+
+
 ****Note
 then(): thường là chờ promise được resolve, với những data return về non-promise
 thì sẽ là data ở then kế tiếp luôn
