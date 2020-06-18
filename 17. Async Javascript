@@ -1,0 +1,160 @@
+1. Javascript là single-threaded: JS chỉ thực thi 1 task vào 1 thời điểm, thực thi tuần tự các task
+const muaXeSH = (so_tien) => {
+    setTimeout(() => {
+        if (so_tien > 100) {
+            return 'sh_xin'
+        } else {
+            return 'wave_ghe'
+        }
+    }, 2000)
+}
+const choGaiDiChoi = (xe) => {
+    setTimeout(() => {
+        if (xe === 'sh_xin') {
+            return 'Cho di cong vien, ho teo'
+        } else {
+            return 'O nha ngu'
+        }
+    }, 2000)
+}
+const xe = muaXeSH(120);
+console.log(choGaiDiChoi(xe));  -> undefined
+
+
+2. Callback hell
+const muaXeSH = (so_tien, callback) => {
+    setTimeout(() => {
+        let xe = ''
+        if (so_tien > 100) {
+            xe = 'sh_xin'
+        } else {
+            xe = 'wave_ghe'
+        }
+        callback(xe)
+    }, 200)
+}
+
+const choGaiDiChoi = (xe, callback) => {
+    setTimeout(() => {
+        if (xe === 'sh_xin') {
+            callback(true)
+        } else {
+            callback(false)
+        }
+    }, 200)
+}
+
+const duaGaiDiNhaNghi = (isDiChoi) => {
+    setTimeout(() => {
+        if (isDiChoi) {
+            console.log('Lam gi tu hieu...')
+        } else {
+            console.log('O nha ngu')
+        }
+    }, 2000)
+}
+
+muaXeSH(120, function(xe){
+    choGaiDiChoi(xe, fucntion(isDichoi){
+        duaGaiDiNhaNghi(isDichoi)
+    })
+})
+
+
+3. Water Fall callback: fucntion trước gọi function sau
+
+
+4. Promise
+Ta sẽ khai báo bằng từ khóa new Promise, Promise có thể là 1 contructor fucntion or 1 class
+Trong Promise sẽ truyền 1 function () => {}   (function A)
+Trong function A sẽ truyền 2 function là resolve và reject
+Return về 1 promise sau đó ta có thể dùng then() để get data được resolve
+
+const muaXeSH = (so_tien) => {
+    const promise = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if (so_tien > 100) {
+                resolve('sh_xin')
+            } else {
+                resolve('wave_ghe')
+            }
+        }, 2000)
+    })
+    return promise
+}
+
+muaXeSH(120)
+.then(data => console.log(data))
+
+
+5. Chaining multiple promises
+const muaXeSH = (so_tien) => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if (so_tien > 100) {
+                resolve('sh_xin')
+            } else {
+                resolve('wave_ghe')
+            }
+        }, 1000)
+    })
+}
+
+const choGaiDiChoi = (xe) => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if (xe === 'sh_xin') {
+                resolve(true)
+            } else {
+                resolve(false)
+            }
+        }, 1000)
+    })
+}
+
+const duaGaiDiNhaNghi = (isDiChoi) => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if (isDiChoi) {
+                resolve('Lam gi tu hieu...')
+            } else {
+                resolve('O nha ngu')
+            }
+        }, 1000)
+    })
+}
+
+muaXeSH(20)
+.then(data => choGaiDiChoi(data))
+.then(data => duaGaiDiNhaNghi(data))
+.then(data => {
+    console.log(data)
+})
+
+****Note
+then(): thường là chờ promise được resolve, với những data return về non-promise
+thì sẽ là data ở then kế tiếp luôn
+
+Chúng ta có 4 chế độ
+Pending: ko có khối nào được thực thi
+Resolve: then() thực thi
+Reject: catch() thực thi
+
+Keep in mind là then() và catch() luôn return về 1 new promise, có thể ko giải quyết cái j hoặc
+giải quyết những gì được return trong then()
+Một khi không còn then() nữa sẽ chuyển sang chế độ Setted
+
+Ở chế độ Setted mình có thể sử dụng 1 block đặc biệt đó là finally()
+
+somePromiseCreatingCode()
+    .then(firstResult => {
+        return 'done with first promise';
+    })
+    .catch(err => {
+        // would handle any errors thrown before
+        // implicitly returns a new promise - just like then()
+    })
+    .finally(() => {
+        // the promise is settled now - finally() will NOT return a new promise!
+        // you can do final cleanup work here
+    });
