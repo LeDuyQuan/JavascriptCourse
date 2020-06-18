@@ -1,0 +1,37 @@
+Mục đích của concept này là muốn code xử lý bất đồng bộ này trông gần giống như code đồng bộ
+1. Async/ await
+Khai báo Async ở trước ở trước function name or trước từ khóa function
+This function automatically returns a promise, vì trong function này ko return về gì, nếu bỏ async ra thì return về nothing
+
+async function ketQua() {  -> return a promise
+    muaXeSH(20)
+    .then(xe => choGaiDiChoi(xe))
+    .then(isDiChoi => duaGaiDiNhaNghi(isDiChoi))
+    .then(data => {
+        console.log(data)
+    })
+}
+ketQua()
+
+
+- Nó sẽ bao toàn bộ code vào trong 1 promise lớn
+- Trong async function, ta khai báo await trước các promise, có vẻ như sẽ chờ function này thực hiện xong và trả kết quả tại đây
+- Vậy chúng ta hứng kết quả đó băng cách const xe = muaXeSH(20)
+async function ketQua() {
+    const xe = await muaXeSH(20)
+    .then(xe => choGaiDiChoi(xe))
+    .then(isDiChoi => duaGaiDiNhaNghi(isDiChoi))
+    .then(data => {
+        console.log(data)
+    })
+}
+ketQua()
+
+- Chúng ta ko return về choGaiDiChoi(xe) nữa, có kết quả có xe rồi thì ta tiếp tục
+async function ketQua() {
+    const xe = await muaXeSH(20)
+    const isDiChoi = await choGaiDiChoi(xe)
+    const data = await duaGaiDiNhaNghi(isDiChoi)
+    console.log(data)
+}
+ketQua()
