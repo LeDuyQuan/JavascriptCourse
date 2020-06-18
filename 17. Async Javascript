@@ -84,7 +84,7 @@ const muaXeSH = (so_tien) => {
 }
 
 muaXeSH(120)
-.then(data => console.log(data))
+.then(xe => console.log(xe))
 
 
 5. Chaining multiple promises
@@ -126,8 +126,8 @@ const duaGaiDiNhaNghi = (isDiChoi) => {
 
 function ketQua() {
     muaXeSH(20)
-    .then(data => choGaiDiChoi(data))
-    .then(data => duaGaiDiNhaNghi(data))
+    .then(xe => choGaiDiChoi(xe))
+    .then(isDiChoi => duaGaiDiNhaNghi(isDiChoi))
     .then(data => {
         console.log(data)
     })
