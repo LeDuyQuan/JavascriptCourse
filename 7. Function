@@ -27,6 +27,12 @@ const loadPerson = pName => ({name: pName });
 Trong JavaScript nếu một hàm không công khai trả về một giá trị, undefined mặc định sẽ được trả về 
 nên cần lưu ý return khi làm việc với function
 
+Nếu muốn vừa khai báo vừa thực thi function luôn thì thế nào
+( () => {
+  console.log('cuong dam mot con heo')
+}
+)()
+
 3. Default arguments in funtions
 const getN = (a,b = 0) => a + b;
 
