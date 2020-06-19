@@ -51,7 +51,7 @@ Khi có 1 bước bị lỗi nó sẽ ngưng chạy tiếp và nhảy thẳng v�
 
 
 3. Promise.all(). Promise.race()
-Promise.race() nhận một mảng các promises
+- Promise.race() nhận một mảng các promises
 Promise nào chậm hơn nó sẽ không cancel mà chỉ là bị ignore đi
 
 const cuongDamConHeo = () => {
@@ -73,5 +73,10 @@ const dayBaGiaXuongBien = () => {
 Promise.race([ dayBaGiaXuongBien(), cuongDamConHeo() ]).then(data => console.log(data))
 
 
-Nếu như muốn combine 2 data lại với nhau thì ta dùng Promise.all()
+- Nếu như muốn combine 2 data lại với nhau thì ta dùng Promise.all()
 Promise.all([ dayBaGiaXuongBien(), cuongDamConHeo() ]).then(dataAll => console.log(dataAll))
+Khi 1 promise bị fail, thì nó sẽ dừng các promise khác lại và bạn có thể hứng lỗi ở catch
+
+
+- Nếu như muốn luôn trả về kết quả mặc kệ có fail hay ko fail
+Promise.allSettled([ dayBaGiaXuongBien(), cuongDamConHeo() ]).then(dataAll => console.log(dataAll))
