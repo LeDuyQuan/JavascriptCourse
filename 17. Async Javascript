@@ -83,6 +83,7 @@ const muaXeSH = (so_tien) => {
     return promise
 }
 
+//then() argument của nó là 1 function: () => {}  .Nêu là data thì sẽ tự động bỏ qua
 muaXeSH(120)
 .then(xe => console.log(xe))
 
