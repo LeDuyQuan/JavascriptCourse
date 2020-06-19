@@ -47,3 +47,31 @@ và trông nó như là 1 đoạn code đồng bộ vậy
 2. Error handling
 Chúng ta sẽ sử dụng 1 bộ xử lý lỗi là try catch
 Khi có 1 bước bị lỗi nó sẽ ngưng chạy tiếp và nhảy thẳng vào catch
+
+
+
+3. Promise.all(). Promise.race()
+Promise.race() nhận một mảng các promises
+Promise nào chậm hơn nó sẽ không cancel mà chỉ là bị ignore đi
+
+const cuongDamConHeo = () => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve('cuong dam heo thanh cong')
+        }, 100)
+    })
+}
+
+const dayBaGiaXuongBien = () => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve('day ba gia thanh cong')
+        }, 1000)
+    })
+}
+
+Promise.race([ dayBaGiaXuongBien(), cuongDamConHeo() ]).then(data => console.log(data))
+
+
+Nếu như muốn combine 2 data lại với nhau thì ta dùng Promise.all()
+Promise.all([ dayBaGiaXuongBien(), cuongDamConHeo() ]).then(dataAll => console.log(dataAll))
