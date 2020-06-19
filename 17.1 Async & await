@@ -27,7 +27,7 @@ async function ketQua() {
 }
 ketQua()
 
-- Chúng ta ko return về choGaiDiChoi(xe) nữa, có kết quả có xe rồi thì ta tiếp tục
+- Chúng ta ko return về choGaiDiChoi(xe) ở then() nữa, có kết quả có xe rồi thì ta tiếp tục await
 async function ketQua() {
     const xe = await muaXeSH(20)
     const isDiChoi = await choGaiDiChoi(xe)
@@ -35,3 +35,15 @@ async function ketQua() {
     console.log(data)
 }
 ketQua()
+
+Những dòng await này nó sẽ return như 1 phần của promise lớn bao bọc và nó có 1 cái block then() vô hình, then() này sẽ lấy kết quả
+từ promise nhỏ này và lưu vào trong biến (const xe =)
+Cuối cùng thì đằng sau await này nó sẽ mô phỏng hoạt động như những then() block này hoạt động
+Hay nói chính xác hơn nó sẽ transform (chuyển đổi) thành phiên bản mà sử dụng then() block
+Sau cùng async/await nó không thay đổi cái cách mà JS thực thi mà chỉ transform code để được 1 đoạn code ngắn gọn hơn. dễ đọc hơn
+và trông nó như là 1 đoạn code đồng bộ vậy
+
+
+2. Error handling
+Chúng ta sẽ sử dụng 1 bộ xử lý lỗi là try catch
+Khi có 1 bước bị lỗi nó sẽ ngưng chạy tiếp và nhảy thẳng vào catch
