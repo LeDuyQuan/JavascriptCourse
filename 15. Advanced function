@@ -25,3 +25,27 @@ function add(num1, num2) {
   result = sum;
   return sum;
 }
+
+
+2. Factory function: ý tưởng của factory function là 1 function return về 1 function mới (tức output của nó là 1 function)
+function tinhTien(soLuong, giaTraSua) {
+  return soLuong * giaTraSua;
+}
+
+const ttTraBacHa = tinhTien(10, 30);
+const ttTraChanh = tinhTien(10, 15);
+Tất nhiên rất ok khi gọi function như vậy, ko có j sai. (số lượng hay thay đổi, giá ít thay đổi) Nhưng bây giờ bạn muốn nhập số lượng ở 1 nơi, giá trà sữa ở 1 nơi khác trong 
+project của bạn thì sao, để dễ quản lý hơn. Lúc này cần factory function
+
+function chucNangTinhTien(giaTraSua){
+  function tinhTien(soLuong) {
+    return soLuong * giaTraSua;
+  }
+  return tinhTien;
+}
+
+const bacHa = chucNangTinhTien(30)
+const traChanh = chucNangTinhTien(15)
+console.log(bacHa(10))
+console.log(traChanh(10))
+Ta chỉ cần gọi function bacHa() với số lượng mà không cần phải truyền vào giá của nó nữa (giá của nó được setting ở 1 nơi khác)
