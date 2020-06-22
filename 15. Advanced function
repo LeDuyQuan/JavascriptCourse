@@ -1,1 +1,27 @@
 Đào sâu vào 1 số concept nâng cao hơn: Pure functions & Side effects, Factory function, Closures, Recursion
+
+1. Pure function without side effect
+Là một function có ít nhất một param/argument, với các tham số (argument) không đổi thì sẽ trả về 1 kết quả giống nhau.
+Và nó cũng không trigger 1 action hay làm thay đổi điều gì ở bên ngoài function (gọi là side effect)
+
+Ex:
+- Pure function: function thuần khiết
+function add(num1, num2) {
+  return num1 + num2;
+}
+console.log(add(1, 5)); // 6
+
+- Impure function
+function addRandom(num1) {
+  return num1 + Math.random();
+}
+console.log(add(5)); -> không thể dự đoán được output
+
+- Side effect: là 1 thuật ngữ để nói về sự thay đổi của bất cứ điều gì bên ngoài function, có thể là HTTP request 
+(muốn sent data đến server) , hoặc là những thay đổi nhỏ như thay đổi giá trị của 1 biến được khai báo ở bên ngoài fucntion.
+let result = 0;
+function add(num1, num2) {
+  const sum = num1 + num2;
+  result = sum;
+  return sum;
+}
