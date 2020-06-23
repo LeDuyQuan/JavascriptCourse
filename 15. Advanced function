@@ -49,3 +49,26 @@ const traChanh = chucNangTinhTien(15)
 console.log(bacHa(10))
 console.log(traChanh(10))
 Ta chỉ cần gọi function bacHa() với số lượng mà không cần phải truyền vào giá của nó nữa (giá của nó được setting ở 1 nơi khác)
+
+
+3. Closures
+Every function in JS is a closure
+
+
+4. Recursion : đệ quy
+Ý tưởng của đệ quy tức là 1 function sẽ tự gọi chính nó
+function powerOf(x, n) {
+  let result = 1;
+  for (let i =0;i<n;i++)
+    result *= x
+  return result;
+}
+
+
+=>
+function powerOf(x,n) {
+  if (n === 1) return x
+  return x* powerOf(x, n-1)
+}
+
+- Những object giống nhau được lồng với nhau, chung ta không biết chúng sẽ lồng ở bao nhiều cấp
