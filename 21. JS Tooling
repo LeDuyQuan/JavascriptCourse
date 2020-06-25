@@ -1,0 +1,32 @@
+1. Webpack
+https://viblo.asia/p/nhung-van-de-nham-lan-khi-su-dung-webpack-maGK7WdaKj2
+
+const path = require('path')  //tiện ích đc tích hợp sẵn trong nodejs, trong nodejs ko sử dụng import
+
+module.exports = {
+  mode: 'development',  //mặc định là prod
+  entry: './src/app.js',
+  output: {
+    filename: 'bundle.js', //đặt tên cho file bundle
+    path: path.resolve(__dirname, 'assets', 'scripts'), //đường dẫn lưu bundle.js, __dirname là global biến của nodejs
+    publicPath: 'assets/scripts/'   //plugin của webpack cập nhập url bên trong CSS, HTML (file bundle.js)
+  },
+  devServer: {  //sau khi cài đặt webpack-dev-server
+    contentBase: './    //đường dẫn tới root HTML  (index.html)
+  }
+}
+
+
+
+
++ Webpack cli: sử dụng webpack để bundle, phục vụ cho production
+"scripts": {
+  build: "webpack" //tự động tìm đến file webpack.config.js
+}
+
++ Webpack-dev-server: sử dụng để development server tự động reload khi change something, phục vụ cho development
+"scripts": {
+  start: "webpack-dev-server" //tạo ra address localhost:8080
+}
+Khi build:dev nó sẽ giữ chương trình luôn chạy (keeps on running), khi nó đang chạy nó sẽ theo dõi những thay đổi nếu có
+và sẽ tự động rebuild lại để cập nhật
