@@ -20,3 +20,27 @@ click() -> {
   section.classList.toggle('visible') -> class visible bị remove
 }
 -> có rồi thì nó bỏ, còn chưa có thì nó sẽ thêm vào
+
+
+
+
+Thì ngày xưa javascript thao tác vs DOM khá là khó khăn nên ng ta sử dụng Jquery, nhưng h js có thể thao tác vs DOM dễ dàng rồi.
+Query
+querySelector(), getElementById(): return single elements
+querySelectorAll(), getElementsByTagName(), getElementsByClassName
+<div>
+  <p>
+    <input id="input_id" class="input-default" value="Enter text">
+  </p>
+</div>
+const input = document.getElementById('input_id');
+console.dir(input)
+attribute tranlate thành properties
+id: 'input_id'
+value: 'Enter text'
+className: 'input-default'
+sẽ có sự reflect giữa attribute và properties ở đây
+Nhưng đôi khi sẽ có trường hợp thay đổi properties nhưng ko refect đc attribute
+vi dụ như value
+input.setAttribute('value', 'text')
+input.value = input.getAttribute('value')
