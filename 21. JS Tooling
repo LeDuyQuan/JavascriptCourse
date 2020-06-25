@@ -17,8 +17,7 @@ module.exports = {
 }
 
 
-
-
+2. Webpack cli và Webpack-dev-server
 + Webpack cli: sử dụng webpack để bundle, phục vụ cho production
 "scripts": {
   build: "webpack" //tự động tìm đến file webpack.config.js
@@ -30,3 +29,7 @@ module.exports = {
 }
 Khi build:dev nó sẽ giữ chương trình luôn chạy (keeps on running), khi nó đang chạy nó sẽ theo dõi những thay đổi nếu có
 và sẽ tự động rebuild lại để cập nhật
+
+
+3. Debug
+devtool:
