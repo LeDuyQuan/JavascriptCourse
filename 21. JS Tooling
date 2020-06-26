@@ -2,6 +2,7 @@
 https://viblo.asia/p/nhung-van-de-nham-lan-khi-su-dung-webpack-maGK7WdaKj2
 
 const path = require('path')  //tiện ích đc tích hợp sẵn trong nodejs, trong nodejs ko sử dụng import
+const CleanPlugin = require('clean-webpack-plugin')
 
 module.exports = {
   mode: 'development',  //mặc định là prod
@@ -13,7 +14,11 @@ module.exports = {
   },
   devServer: {  //sau khi cài đặt webpack-dev-server
     contentBase: './    //đường dẫn tới root HTML  (index.html)
-  }
+  },
+  devtool: 'inline-source-map',
+  plugin: [
+    new CleanPlugin.CleanWebpackPlugin
+  ]
 }
 
 
@@ -41,3 +46,17 @@ devtool: 'inline-source-map'
 Tạo ra 1 file config mới tên webpack.config.prod.js
  Sửa lại "build": "webpack --config webpack.config.prod.js"
 
+
+5. Thêm clean plugin để loại bỏ những bundle thừa
+
+6. Change name của bunlde
+Vì brower thường cache JS và CSS (lưu bản sao) khi user truy cập webpage: nếu file ko change thì user truy cập lần sau nhanh hơn
+-> Buộc browser download new version of file bằng cách change file name
+-> Webpack sẽ giúp, không phải random name cho file nhưng sẽ xác định unique cho mỗi file cho mỗi lần build
+filename: '[contenthash].js'
+
+
+7. Sử dụng third party package
+Sau khi chúng ta install thì nó mới chỉ có ở thư mục, và để sử dụng chúng ta cần import
+import * as _ from 'lodash'
+-> Ko có đường dẫn tương đối, webpack sẽ hiểu là sẽ tìm package có tên lodash trong thư mục node_modules
