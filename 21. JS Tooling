@@ -32,4 +32,12 @@ và sẽ tự động rebuild lại để cập nhật
 
 
 3. Debug
-devtool:
+devtool: https://webpack.js.org/configuration/devtool/#qualities
+
+devtool: 'inline-source-map'
+
+
+4. Webpack for prod
+Tạo ra 1 file config mới tên webpack.config.prod.js
+ Sửa lại "build": "webpack --config webpack.config.prod.js"
+
