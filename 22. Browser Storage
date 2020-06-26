@@ -1,0 +1,17 @@
+1. localStorage, sessionStorage
+- Key-value store đơn giản
+- Để quản lý tùy chọn người dùng or data đơn giản
+- Giao tiếp thông qua Javascript //có thể thông qua developer tools
+
+2. cookies //cũng là 1 nơi lưu trữ simple khác
+- Key-value: nhưng có thể config ví dụ expire at some time cho data đó
+- Để quản lý tùy chọn người dùng or data đơn giản
+- Giao tiếp thông qua Javascript //có thể thông qua developer tools
+
+3. IndexedDB 
+- CSDL phía client có thể sử dụng ngôn ngữ truy vấn
+- Quản lý phức tạp với table
+- Giao tiếp thông qua Javascript
+
+
+Tất cả data lưu bằng 3 cách này có thể được người dùng xóa dễ dàng bằng 1 cú click
