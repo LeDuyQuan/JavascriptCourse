@@ -16,4 +16,22 @@ C. IndexedDB
 Tất cả data lưu bằng 3 cách này có thể được người dùng xóa dễ dàng bằng 1 cú click
 
 1. localStorage
-localStorage               //nó là window.localStorage (window là object của trình duyệt, ko phải của JS)
+localStorage.setItem('uid', userId)    //nó là window.localStorage (window là object của trình duyệt, ko phải của JS)
+const store = localStorage.getItem('uid') 
+
+- Chỉ lưu string nên nếu là JSON thì
+localStorage.setItem('json', JSON.stringify(user))
+const store = JSON.parse(localStorage.getItem('json'))
+
+
+2. sessionStore: cũng lưu trữ như localStore nhưng sẽ bị xóa khi đóng tab
+
+
+3. Cookie
+document.cookie = 'username=Ted Mosby; max-age=9000'  //add entry, ko phải overide
+const cookieData = document.cookie.split(';');
+const data = cookieData.map(x => x.trim());
+const store = data[0].split('=')[1];
+
+
+4. IndexedDB
