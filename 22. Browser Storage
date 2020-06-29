@@ -35,3 +35,12 @@ const store = data[0].split('=')[1];
 
 
 4. IndexedDB
+
+
+5. Support of Browser
+Có những tính năng như fetch được nhiều trình duyệt hỗ trợ những cũng có 1 số ko hỗ trợ như IE
+Tra cứu tính năng: https://caniuse.com/
+
+Vậy để có thể sử dụng những tính năng thiếu xót đó trên IE ta có thể sử dụng third-party: polyfill
+
+Để chuyển ngôn ngữ cao về ngôn ngữ thấp ta sử dụng: transpiler code -> babel
