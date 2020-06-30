@@ -41,6 +41,13 @@ const store = data[0].split('=')[1];
 Có những tính năng như fetch được nhiều trình duyệt hỗ trợ những cũng có 1 số ko hỗ trợ như IE
 Tra cứu tính năng: https://caniuse.com/
 
-Vậy để có thể sử dụng những tính năng thiếu xót đó trên IE ta có thể sử dụng third-party: polyfill
++ Vậy để có thể sử dụng những tính năng thiếu xót đó trên IE ta có thể sử dụng third-party: polyfill
 
-Để chuyển ngôn ngữ cao về ngôn ngữ thấp ta sử dụng: transpiler code -> babel
++ Để chuyển ngôn ngữ cao về ngôn ngữ thấp ta sử dụng: transpiler code -> babel (để code có thể sử dụng ở nhiều trình duyệt phiên bản cũ)
+Khai báo babel trong webpack
+Trình duyệt cần được biên dịch: khai báo ở package.json ("browserlist" được sử dụng ngầm bởi @babel/preset-env)
+"browserlist": "> 2%, not dead"   //trình duyệt chiếm hơn 2% thị phần, số càng nhỏ thì càng support older browsers. (not dead là những browser còn đc support)
+=> điểu này có thể chuyển let, const thành var những promise vẫn chưa được transpiler nên cần kết hợp với polyfill
+
++ core-js
+import core-js, you have access to all the Javascript features of all browsers
