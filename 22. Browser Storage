@@ -51,3 +51,9 @@ Trình duyệt cần được biên dịch: khai báo ở package.json ("browser
 
 + core-js
 import core-js, you have access to all the Javascript features of all browsers
+Trong webpack: babel-loader
+- useBuiltIns: control polyfilling behavior
+- usage: Babel will add polyfill entries as it detects it
+presets: [
+  ['@babel/preset-env', { useBuiltIns: 'usage', corejs: { version: 3 } }]
+]
