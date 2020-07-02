@@ -1,0 +1,33 @@
+A. Angular
+- Use Typescript
+- Support nhiều chức năng như violation, HTTP request
+
+B. React
+- Use enhanced JS syntax (JSX)
+- Sinh ra 1 hệ sinh thái lớn bổ sung nhiều tính năng
+
+C. Vuejs
+- Use regular JS
+- Học dễ nhất
+
+1. ReactJS
+JSX cho phép đưa HTML vào JavaScript. (ko giống như trước đây đưa code JS vào HTML)
+Để sử dụng cần phải: import React from 'react'
+Ví dụ:
+var nav = (
+    <ul id="nav">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Clients</a></li>
+      <li><a href="#">Contact Us</a></li>
+    </ul>
+);
+
+Babel sẽ chuyển đổi các biểu thức này thành mã JavaScript.
+
+Syntax: {} để hiểu rằng đây ko hoàn toàn là jsx code (js code mixed with js code)
+<React.Fragment>
+  {isLoading && (
+      <Modal>.....</Modal>
+  )}
+</React.Fragment>
