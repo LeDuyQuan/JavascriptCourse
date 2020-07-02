@@ -6,3 +6,8 @@ any other number -> true
 any other non-empty string -> true
 {}, [] -> true
 null, undefined, NaN -> false
+
+
+2. && và ||
+a || b => nếu a true thì return a, ngược lại return b
+a && b => nếu a true thì return b, ngược lại return a
