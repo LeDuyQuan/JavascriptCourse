@@ -1,0 +1,35 @@
+- JS code có thể được đọc trên bất kỳ browser nào. Tức là
+Bất cứ ai đang truy cập trang của bạn đều có thể đọc mã Javascript chạy trên trang này,
+
+- Những thông tin như conection string database thì được code ở nodejs, nó sẽ không được hiển thị cho người dùng
+vì JS code đó ko được gửi lên cho user (ko được đính kèm vào HTML)
+
+1. Cross-Site Scripting Attacks (XSS)
+- Mã JS độc hại được tiêm vào ứng dụng và được thực thi
+- Thường bị tấn công từ innerHTML code (trên URL)
+- Nên sử dung package sanitize-html
+- Nếu sử dụng third-party trên github có gì lạ không
++ Như access browser storage
++ Send HTTPRequests
+
+
+2. Cross-Site Request Forgery (CSRF)
+- Xảy ra ở server side
+- Lừa bạn click vào 1 link dẫn tới page nào đó
+- Họ lạm dụng cookie địa phương của bạn để sau đó gửi yêu cầu đến trang mà bạn thường nói chuyện,
+
+
+3. Cross-Orgin Resource Sharing (CORS) - một khái niệm bảo mật
+-  same origin policy là 1 chính sách bảo mật của các browser nhằm ngăn chặn request đến domain khác.
+Ví dụ: đang bật 2 tab ABC và facebook, ABC gửi request get message đến facebook sẽ bị lỗi CORS.
+Do domain của ABC khác với của facebook
+
+-> Gây hạn chế giao tiếp giữa client và server nếu chính chủ (ví dụ client là portal.quan.com và server là api.quan.com)
+
+- Cơ chế hoạt động:
+Những request này sẽ được đính kèm một header tên là Origin
+origin: https://www.orangetheory.com
+
+Server sẽ xem xét Origin để biết được nguồn này có phải là nguồn hợp lệ hay không. Nếu hợp lệ, server sẽ trả về response kèm với header Access-Control-Allow-Origin.
+access-control-allow-origin: https://www.orangetheory.com
+
