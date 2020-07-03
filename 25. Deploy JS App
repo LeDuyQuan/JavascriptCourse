@@ -1,0 +1,25 @@
+1. Deployment step
+a. Only HTML + JS + CSS
+- Phục vụ trang web cho users là static host. Đây là một máy chủ lưu trữ, một máy chủ web, 
+một máy tính được cấu hình sao cho các httpRequests đến, nó sẽ trả về HTML, CSS, JS và maybe images.
+- Là 1 máy tính ở đâu đó trên Internet có IP riêng
+- Không thực thi JS code
+- Ví dụ: AWS S3, Firebase Hosting,...
+
+b. Server0side code (Node.js)
+- Cần dynamic host
+- Thực thi JS code
+- Ví dụ: AWS Elastic Beanstalk, Heroku,...
+
+Quy trình sẽ là:
+- Develop/ Write code
+- Test
+- Optimize: babel, minifile, polyfill
+- Build for production: webpack
+- Deploy output
+
+Sử dụng Firebase hosting
+- Install Firebase CLI
+Code: Firebase init
+Select hosting -> Create a new project -> enter name
+Code firebase deploy
