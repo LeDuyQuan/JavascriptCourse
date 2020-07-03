@@ -33,3 +33,10 @@ origin: https://www.orangetheory.com
 Server sẽ xem xét Origin để biết được nguồn này có phải là nguồn hợp lệ hay không. Nếu hợp lệ, server sẽ trả về response kèm với header Access-Control-Allow-Origin.
 access-control-allow-origin: https://www.orangetheory.com
 
+NodeJS:
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*')
+  res.setHeader('Access-Control-Allow-Methods', 'POST, GET, OPTIONS')
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type')
+})
+
