@@ -1,0 +1,13 @@
+Typescript là ngôn ngữ không chạy trong trình duyệt cũng không chạy trong Node.js, đc xây dựng dựa trên JS, nó sẽ được compile thành JS
+với một công cụ nào đó. TS thêm nhiều tính năng vào JS để dev dễ hơn và clean hơn.
+
+1. Typescript: 
++ Add static types: có thể khai bao type để ràng buộc về kiểu dữ liệu
+Ex: function add(a: number, b: number) return a + b;
+add('5', '3') -> error //cho dev cơ hội fix trước khi test trên browser
+
++ Được add thêm nhiều tính năng mới
++ Compiles next-gen JS to "old JS" //giống như Babel, TS đã tích hợp sẵn
+
+
+2. Working
