@@ -21,3 +21,5 @@ const result = add('5', '3') -> error //cho dev cơ hội fix trước khi test 
 3. Core types & Diving deeper
 + Chúng ta có thể thêm type cho const result: number = add(5, 3), nhưng ko cần thiết vì TS tự suy luận ra result sẽ giữ
 kiểu dữ liệu là number
++ Boolean, string, number, function
++ Make clear function ko return anything thì ta thêm return void cho nó: function printResult(result): void {}
