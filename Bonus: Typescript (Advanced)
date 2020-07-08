@@ -1,0 +1,59 @@
+ a. Classes
+class User {
+  private name: string;  //trong TS phải luôn khai báo field all the time
+  age: number;           //default là public
+   
+  constructor(name: string, age: number) {
+    this.name = name;
+    this.age = age;
+  }
+}
+const user = new User('Max', 19)
+console.log(user.name, user.age) //error by user.name
+
+Một cách khác gọn hơn
+class User {
+  constructor(private name: string, public age: number) {} //các tham số này sẽ được tự động chuyển đổi thành các thuộc tính
+}
+
+class Admin extends User {
+  constructor(name: string, age: number, private perminssion: string[]){
+    super(name, age);
+  }
+}
+
+
+b. Interfaces
+- Sometimes ta muốn có 1 kịch bản cho object mà không muốn khởi tạo instance vì object đó là object khá đơn giản
+không cần phải xây dựng class, hay class kế thừa và những method trong class
+
+interface Calculation {
+  res: number;
+  print(): void;
+}
+
+- Có thể sử dụng interface như type 
+Ex:
+function printResult(input: string, zed: Calculation){}
+
+- Ngoài tạo blueprint cho object thì có thể sử dụng để ràng buộc structure cho class
+Ex:
+interface Greetable {
+  name: string;
+}
+
+interface Printable {
+  name: string;
+}
+
+class User implements Greetable, Printable {
+  constuctor(public name: string, private age: number){}
+  
+  print() {  //class nào implements Printable đều phải có print method
+    console.log(this.name) 
+  }
+}
+
+- Tại sao phải tự ép mình như vậy: nếu là working trong 1 big project, làm việc theo team sẽ helpful
+để tất cả các dev sử dụng cùng một style làm việc trên cùng một mục tiêu
+
