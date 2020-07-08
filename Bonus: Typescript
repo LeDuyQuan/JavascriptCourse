@@ -23,3 +23,21 @@ const result = add('5', '3') -> error //cho dev cơ hội fix trước khi test 
 kiểu dữ liệu là number
 + Boolean, string, number, function
 + Make clear function ko return anything thì ta thêm return void cho nó: function printResult(result): void {}
+
+Ex: 
+const input = document.getElementById('input-text')
+const valueInput = input.value  //bị lỗi ngay value
+-> Vì sao typescript lại không hiểu property value của valueInput?
+- Do chúng ta nói với TS rằng ta đang select 1 element trên DOM by ID nhưng đó là any element chứ ko chỉ mỗi element input
+- Vì vậy khi hover vào sẽ thấy kiểu trả về của TS là HTMLElement
+- TS ko scan index.html để check chúng ta đang select là input, button, hay list,...
+- Chúng ta cần overide lại type: 
+- Ko phải bằng cách này: const input: HTMLInputElement = document.getElementById('input-text')
+vì khai báo như v giống ép kiểu và getElementById vẫn luôn trả về type HTMLElement
+
+-> const input = document.getElementById('input-text') as HTMLInputElement
+or const input = <HTMLInputElement>document.getElementById('input-text')
+
+const valueInput = input.value //value sẽ luôn là string mặc cho tag input type="text" hay "number"
+
+
