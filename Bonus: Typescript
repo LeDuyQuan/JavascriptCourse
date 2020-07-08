@@ -41,3 +41,59 @@ or const input = <HTMLInputElement>document.getElementById('input-text')
 const valueInput = input.value //value sẽ luôn là string mặc cho tag input type="text" hay "number"
 
 
+4. Object, array, function
+a. Object
+const resultContainer: { res: number } = {
+  res: result
+}
+const sum = resultContainer.res
+
+Thực tế Typescript đó tự động suy luận và add type vào resultContainer cho nên chỉ cần:
+const resultContainer = {
+  res: result,
+  print() {
+    console.log(this.res)
+  }
+}
+
+
+b. Array, fucntion
+let results = []
+results.push(resultContainer)
+results.push(5) //không mong muốn
+
+Trong JS ta có thể push mixed các dữ liệu với type khác nhau ở trong 1 ít trường hợp
+Nhưng đa số ta chỉ muốn có 1 kiểu type trong array
+-> let results: { res: number }[] = [] 
+or let results: string[] = [] để lưu mỗi mảng string
+
+-> let results: { res: number, print: () => void }[] = [] 
+
+
+5. Advanced type: literal, union, enums
+a. Tạo ra type của riêng mình
+type Calculation = { res: number, print: () => void }[]  //từ khóa type chỉ có ở TS
+-> let results: Calculation = [] 
+
+
+b. literal type & union type
+function sum(input: string | number) {  //union type
+  if (typeof input === "number") {}
+  else {}
+}
+
+function printResult(printMode: 'console' | 'alert') {  //literal type & union type
+  if (printMode === 'console') {}
+  else {}
+}
+printResult('alert') //work
+printResult('win') //error
+
+
+c. Enum
+enum OutputMode { CONSOLE, ALERT }
+function printResult(printMode: OutputMode) {  //literal type & union type
+  if (printMode === OutputMode.CONSOLE) {}
+  else {}
+}
+printResult(OutputMode.CONSOLE) //work
