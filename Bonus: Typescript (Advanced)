@@ -1,4 +1,4 @@
- a. Classes
+ 1. Classes
 class User {
   private name: string;  //trong TS phải luôn khai báo field all the time
   age: number;           //default là public
@@ -23,7 +23,7 @@ class Admin extends User {
 }
 
 
-b. Interfaces
+2. Interfaces
 - Sometimes ta muốn có 1 kịch bản cho object mà không muốn khởi tạo instance vì object đó là object khá đơn giản
 không cần phải xây dựng class, hay class kế thừa và những method trong class
 
@@ -57,3 +57,39 @@ class User implements Greetable, Printable {
 - Tại sao phải tự ép mình như vậy: nếu là working trong 1 big project, làm việc theo team sẽ helpful
 để tất cả các dev sử dụng cùng một style làm việc trên cùng một mục tiêu
 
+
+3. Generic types
+interface CalculationContailner {
+ res: number
+}
+
+type CalculationResult = CalculationContailner[];
+
+Chúng ta sử dụng type cho biến như sau:
+-> const results: CalculationResult = []
+
+Thay vì đó sử dụng Generic type để khai báo type bên trong Array (2 typys woking together)
+-> const results: Array<CalculationContailner> = []
+
+Có thể sử dung generic type với function
+function logAndEcho<T>(val: T){ //T như 1 placeholder
+ return val;
+}
+
+logAndEcho<string>('Hi there').split(' ');
+
+
+4. Config Typescript Compiler
+Nếu muốn compiler tất cả TS ta dùng: tsc --init để tạo ra file tsconfig.json
+Sau đó gõ: tsc -> compiler all TS files
+
+Chế độ strict mode:
+const buttonElement = document.querySelector('button'); //TS sẽ ngầm định là HTMLButtonElement | null
+Như vậy nếu lấy biến buttonElement sử dụng là ko check thì strict mode sẽ báo lỗi
+Do TS không quét file HTML nên nó ko biến có tồn tại button hay không. Vì vậy:
+
+a. Check
+if (!buttonElement) {}
+
+b. Nói với TS rằng biến này sẽ không bao giờ bị null, ignore the null case
+const buttonElement = document.querySelector('button')!;
