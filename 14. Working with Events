@@ -1,0 +1,21 @@
+Có 3 cách để thêm events
+- Cách 1 là một cách khá cũ và bạn không nên sử dụng vì khó maintain
+Thêm attribute onclick="" vào trong HTML code
+-> <button onclick="alert('Hello')">Click me</button>
+Vì đã có 1 file JS riêng biệt để xử lý nên viêc mix HTML và JS code ko đc khuyến nghị
+
+- Cách 2:
+const button = document.querySelector('button')
+button.onclick = function () {
+}
+or button.onclick = onHandlerClick;
+
+Nhưng có 1 nhược điểm là sẽ không gọi được nhiều function cùng lúc. ví dụ
+button.onclick = onHandlerClick;
+button.onclick = onOtherHandlerClick;
+-> lúc này sẽ gọi function onOtherHandlerClick do override
+-> cũng ko đc khuyến nghị
+
+- Cách 3: recommended
+Sử dụng button.addEventListener() có thể add multiple function
+Cũng có thể sử dụng thêm button.removeEventListener để flexible trong 1 số trường hợp
