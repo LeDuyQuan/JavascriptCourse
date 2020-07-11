@@ -19,3 +19,81 @@ button.onclick = onOtherHandlerClick;
 - Cách 3: recommended
 Sử dụng button.addEventListener() có thể add multiple function
 Cũng có thể sử dụng thêm button.removeEventListener để flexible trong 1 số trường hợp
+
+
+1. Execute và removeEventListener
+const button = document.querySelector('button')
+button.addEventListener('click', onHandlerClick);
+
+setTimeout(() => {
+  button.removeEventListener('click', onHandlerClick);
+}, 1000)
+
+- fucntion onHandlerClick có thể hứng argument event:
+const onHandlerClick = event => {
+  console.log(event.target);
+}
+
+2. preventDefault
+<form>
+  <button type="submit"></button>
+</form>
+- Nếu mặc định thì khi click button <form> sẽ request server -> load lại trang
+Để tránh việc send data để xử lý thêm ví dụ như validate thì chúng ta thêm:
+const form = document.querySelector('form');
+form.addEventListener('submit', event => {
+  event.preventDefault();
+  ...
+}
+
+3. stopPropagation
+<div>
+  <button>Click</button>
+</div>
+
+div.addEventListener('click', event => {
+  console.log('div')
+}
+button.addEventListener('click', event => {
+   event.stopPropagation();  //Để khi trigger button thì không thực hiện div
+   //event.stopImmediatePropagation();  //Dành cho multible other button
+   console.log('button')
+}
+
+}
+
+4. Drag vs Drop
+- Cần phải config cho các element là draggable -> có thể move đc nhưng chưa drop được
+- Tạo function xử lý drag drop ở ITEM
+connectDrag() {
+  document.getElementById(this.id).addEventListener('dragstart', event => {
+    event.dataTransfer.setData('text/plain', this.id);
+    event.dataTransfer.effectAllowed = 'move';    //mô tả effect của việc Drag
+  })
+}
+
+- Tạo function xử lý ở LIST ITEM
+connectDroppable() {
+  const list = document.querySelector(`.${type}-projects ul`);
+  list.addEventListener('dragenter', event => {
+    if (event.dataTransfer.types[0] === 'text/plain') {
+      list.parentElement.classList.add('droppable');
+      event.preventDefault();
+    }
+  }
+  list.addEventListener('dragover', event => {
+    if (event.dataTransfer.types[0] === 'text/plain') {
+      ...
+      event.preventDefault();
+    }
+  }
+  list.addEventListener('dragleave, event => {
+    if (event.dataTransfer.types[0] === 'text/plain') {
+      ...
+      event.preventDefault();
+    }
+  }
+}
+
+
+
