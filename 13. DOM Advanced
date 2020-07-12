@@ -1,4 +1,4 @@
-1. Dataset: dùng để store data trên DOM
+. Dataset: dùng để store data trên DOM
 <div id="123" data-user-info="" data-salary=""></div>
 -> const getData = document.getElementById('123')
 -> getData.dataset.userInfo
@@ -14,3 +14,10 @@ y-axis from top to bottom
 + $0.clientWidth clientHeight, cliendTop, clientLeft: tính inner without border
 + window.innerWidth, window.innerHeight // có thể chứa cả thành scrollbar
 + document.documentElement.clientWidth, document.documentElement.clientHeight
+
+
+3. scroll
+- Xét max-height và overflow: scroll
+- scrollTo(0, 100): down xuống 100 pixel
+- scrollTo({top: 100, behavior: 'smooth'})
+- scrollBy(0, 100): xuống 100 pixel nhưng sẽ ghi nhớ mốc scroll
