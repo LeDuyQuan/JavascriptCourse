@@ -21,3 +21,53 @@ y-axis from top to bottom
 - scrollTo(0, 100): down xuống 100 pixel
 - scrollTo({top: 100, behavior: 'smooth'})
 - scrollBy(0, 100): xuống 100 pixel nhưng sẽ ghi nhớ mốc scroll
+
+
+4. Template
+- Template không được render nhưng nó là 1 phần của DOM
+- Có thể query dựa vào id
+<template id="tooltip">
+  <h2>More detail</h2>
+  <p></p>
+</template>
+const tooltipElement = document.createElement('div')
+tooltipElement.className = 'card';
+
+const tooltipTemplate = document.getElementById('tooltip');
+const tooltipBody = document.importNode(tooltipTemplate.content, true);
+tooltipBody.querySelector('p').textContent = 'Hello';
+tooltipElement.append(tooltipBody);
+
+->  Chúng ta có thể loại bỏ HTML code ra khỏi script
+Thay vì tooltipElement.innerHTML = '<h2>More detail<h2>'
+
+
+Đối tượng window đại diện cho 1 cửa sổ trong trình duyệt
+5. setTimeout & setIntervals (của window)
++ setTimeout(this.getArea, 3000, [...argument of function])
++ const intervalId = setInterval(()=>{},1000)
+document.getElementById('stop-btn').addEventListener('click', () => {
+  clearInterval(intervalId);
+}
+
+
+6. location & history (của window object)
+a. location
+- Rất hữu ích trong việc navigate 
+- location.href = 'url'     //đi đến đường link mới
+- location.replace('url')   //đi đến đường link mới nhưng ko back đc
+
+b. history: thường đi chung với location
+- history.back()    //quay lại trang trước đó
+- history.length    //đếm step trong tab hiện tại
+- history.go(5)
+
+
+6. Date (global function)
+-> const date = new Date()
+- date.getDate()    //ngày trong tháng
+- date.getDay()     //thứ trong tuần
+
+
+7. Error (global contructor function)
+-> throw new Error('Something went wrong')
