@@ -51,3 +51,20 @@ c. Một concept khác quan trong của browser (ko nằm trong JS engine) là E
 - Khi STACK gọi đến setTimeout thì timer(countdown) sẽ được thực hiên bởi WebAPIs, setTimeout bi remove khỏi STACK
 - Sau khi countdown xong, callback function được đẩy vào trong QUEUE.
 - Event Loop sẽ nhìn vào STACK và QUEUE, nếu STACK empty thì sẽ đẩy callback từ QUEUE sang STACK và thực thi.
+
+
+3. Primitive vs Reference values
+a. Primitive: kiểu nguyên thủy
+- Có 6 kiểu: string, number, boolean, null, undefined, symbol
+- Được store ở stack
+
+b. Reference
+- All other objects
+- Được store ở trong memory (heap), store địa chỉ của memory
+
+-> const hobbies = ['Sports'];
+hobbies.push('Cooking');
+Vì sao hobbies được lưu bởi const (ko change đc) lại có thể thêm value mới vào mảng
+- hobbies là array vì vậy được store trong memory
+- The address is getting stored in this constant
+- Vì vậy value của const không change vì value của nó là address (địa chỉ của vùng nhớ chứa giá trị là 'Cooking')
