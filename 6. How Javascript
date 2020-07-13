@@ -68,3 +68,15 @@ Vì sao hobbies được lưu bởi const (ko change đc) lại có thể thêm 
 - hobbies là array vì vậy được store trong memory
 - The address is getting stored in this constant
 - Vì vậy value của const không change vì value của nó là address (địa chỉ của vùng nhớ chứa giá trị là 'Cooking')
+
+
+4. Garbage collection & Memory
+- Không đề cập tới STACK vì nó tự động clear (item function call remove sau khi done)
+- Computer chỉ cung cấp 1 phần memory cho Browser, nếu vượt quá thì Computer sẽ kill Browser. Thực tế ko xảy ra vì Browser cũng có bộ nhớ trong
+sẽ kill web trước khi chiếm nhiều memory
+- Vì vậy Browser sẽ có Gabage Collection của JS engine
++ GC kiểm tra định kỳ heap
++ Clear những object ko sử dụng: 
+-> let a = {name: 'Quan'}
+a = 'Quan'  //lúc này {name: 'Quan'} được store ở heap sẽ ko còn sử dụng nữa và sẽ đc clear
+
