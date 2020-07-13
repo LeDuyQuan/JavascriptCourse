@@ -6,9 +6,48 @@
 
 - Browser have a Javascript engine (V8 or Sprider Monkey)
 - Javascript engine: công cụ này thực hiện phân tích cú pháp (Parsing) và thực thi (Execution) và chúng thường bao gồm hai phần:
-+ Interpreter (trình thông dịch): parses script & starts execution: loads script, reads it, translates it to byte code
-+ Compiler (just in time):  compiles the script to machine code, xảy ra song song với trình thông dịch
++ Interpreter (trình thông dịch): parses script & starts execution: loads script, reads it, translates it to byte code.
+Interpreter thực thi theo từng dòng -> ko nhanh nhất có thể.
+Interpreter trao byte code cho Compiler
+
++ Compiler (just in time): compiles the script to machine code, xảy ra song song với trình thông dịch
+Trong khi trình thông dịch (Interpreter) đã bắt đầu thực thi script, thì Compiler compiles the script to machine code.
+Vậy Just in time có nghĩa là trình biên dịch (Compiler) bắt đầu biên dịch trong khi code đang được read/thực thi.
+
 + Machine code sau đó sẽ được chuyển tới computer
 
 
-2. How code gets executed
+2. How code gets executed (Inside JS Engine)
+function A(){
+  console.log('function a')
+}
+setTimeout(function callback() {
+  console.log('there')
+  A()
+},0)
+function B(){
+  console.log('function b')
+}
+B();
+
+a. Heap: long term memory, store data in memory
+- Các function sẽ đc store ở trong heap
+
+b. Stack: short term memory <Last in first out>
+- Được tạo ra để push những function call vào và loại nó ra khi ko cần thiết nữa
+- Với ví dụ trên: B() sẽ đc push vào STACK
+- Nhưng trong B() có gọi A() và A() được push vào trên B()
+- Cái nào vừa thực thi xong sẽ remove khỏi STACK
+
+|                 |
+|       A()       |
+|       B()       |
+|(anonymous)main  |
+|_______Stack_____|
+
+c. Một concept khác quan trong của browser (ko nằm trong JS engine) là Event Loop
+- Giúp giải quyết trong vấn đề bất đồng bộ
+- Đối với setTimeout: setTimeout ko nằm trong JS engine mà nó là của WebAPIs
+- Khi STACK gọi đến setTimeout thì timer(countdown) sẽ được thực hiên bởi WebAPIs, setTimeout bi remove khỏi STACK
+- Sau khi countdown xong, callback function được đẩy vào trong QUEUE.
+- Event Loop sẽ nhìn vào STACK và QUEUE, nếu STACK empty thì sẽ đẩy callback từ QUEUE sang STACK và thực thi.
