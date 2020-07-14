@@ -11,3 +11,7 @@ null, undefined, NaN -> false
 2. && và ||
 a || b => nếu a true thì return a, ngược lại return b
 a && b => nếu a true thì return b, ngược lại return a
+
+
+- Đối với ||  : trả về truthy đầu tiên. Nếu tất cả là falsy, giá trị cuối cùng sẽ đc trả về
+- Đối với &&  : trả về falsy đầu tiên, Nếu tất cả là truthy, giá trị cuối cùng sẽ đc trả về
