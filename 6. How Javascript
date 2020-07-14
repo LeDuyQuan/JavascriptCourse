@@ -80,3 +80,21 @@ sẽ kill web trước khi chiếm nhiều memory
 -> let a = {name: 'Quan'}
 a = 'Quan'  //lúc này {name: 'Quan'} được store ở heap sẽ ko còn sử dụng nữa và sẽ đc clear
 
+
+function printMessage() {
+  const value = 'halele'
+  console.log(value || 'hello')
+}
+
+function addListener() {
+  clickBtn.addEventListener('click', printMessage)
+}
+-> Sau lần click đầu tiên thì các lần click sau ko tạo ra function object mới trong memory
+
+function addListener() {
+  clickBtn.addEventListener('click', function() {
+  const value = 'halele'
+  console.log(value || 'hello')
+})
+-> Sẽ tạo ra new brand sau mỗi lần click -> leak memory
+}
