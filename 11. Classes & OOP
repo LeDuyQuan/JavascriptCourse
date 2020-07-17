@@ -15,7 +15,15 @@ class Product {
   }
   addTitle() {      //method
   }
+  
+  addHeader = () => {
+  }
 }
+
+- Có thể thay thế cách tạo method bằng cách sử dụng arrow function như addHeader.
++ Với khởi tạo method bình thường thì addTitle sẽ được ẩn đi và xem như là 1 prototype
++ Khởi tạo bằng arrow function thì addHeader sẽ đc xem như là 1 property
+
 
 2. Kế thừa
 //just can only extends from one class
