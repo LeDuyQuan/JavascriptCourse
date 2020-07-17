@@ -76,3 +76,6 @@ getFirst(getSecond)
 5. bind() trong function
 - Sử dụng khi muốn truyền parameter vào indirectly function
 
+
+***
+Arrow function và bind function sẽ tạo ra 1 function mới mỗi khi được gọi
