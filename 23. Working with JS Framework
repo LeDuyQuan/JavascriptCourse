@@ -25,7 +25,7 @@ var nav = (
 
 Babel sẽ chuyển đổi các biểu thức này thành mã JavaScript.
 
-Syntax: {} để hiểu rằng đây ko hoàn toàn là jsx code (js code mixed with js code)
+Syntax: {} để hiểu rằng đây ko hoàn toàn là jsx code (jsx code mixed with js code)
 <React.Fragment>
   {isLoading && (
       <Modal>.....</Modal>
