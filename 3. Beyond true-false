@@ -15,3 +15,10 @@ a && b => nếu a true thì return b, ngược lại return a
 
 - Đối với ||  : trả về truthy đầu tiên. Nếu tất cả là falsy, giá trị cuối cùng sẽ đc trả về. 
 - Đối với &&  : trả về falsy đầu tiên. Nếu tất cả là truthy, giá trị cuối cùng sẽ đc trả về. 
+
+
+EX:
+if (a === 1)
+  a++
+  
+=> a === 1 && a++
