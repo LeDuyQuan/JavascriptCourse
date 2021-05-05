@@ -8,14 +8,18 @@
 
 
 1. Stack
-- Call Stack là một cấu trúc dữ liệu dạng ngăn xếp (stack) dùng để chứa thông tin về hoạt động của chương trình máy tính trong lúc thực thi
+- Call stack là một cấu trúc dữ liệu dạng ngăn xếp (stack) dùng để chứa thông tin về hoạt động của chương trình máy tính trong lúc thực thi
 - Single Call Stack, một lúc chỉ làm một việc thôi
-- Khi thực thi function A, thì A sẽ được push (on top) vào call stack. Sau khi A thực thi xong và trả về kết quả, A sẽ bị pop ra khỏi stack.
+- Khi thực thi function A, thì A sẽ được push (on top) vào call Stack. Sau khi A thực thi xong và trả về kết quả, A sẽ bị pop ra khỏi Stack.
 - Nhưng nếu A gọi function B thì B sẽ được push on top lên A (A lúc này đang chờ B thực thi xong). Sau khi B xong sẽ bị pop, A có kết quả và bị pop 
-- Với mỗi dòng code async thì async A được push vào stack và chờ thực thi, thực thi xong pop. Rồi async B được push vào stack, chờ thực thi xong sẽ pop khỏi stack.
+- Với mỗi dòng code async thì async A được push vào Stack và chờ thực thi, thực thi xong pop. Rồi async B được push vào Stack, chờ thực thi xong sẽ pop khỏi Stack.
 
 - Nếu đối với setTimeout: ví dụ nếu có lệnh thực thi setTimeout 5s thì:
-+ setTimeout sẽ được gọi vào trong stack, nhưng bằng cách "nào đó" nó được biến mất (để còn thực hiện các lệnh khác). Sau 5s thì lệnh thực thi trong setTimeout sẽ đuợc push vào stack.
-+ Chính là nhờ event loop
++ setTimeout sẽ được gọi vào trong Stack, nhưng bằng cách "nào đó" nó được biến mất (để còn thực hiện các lệnh khác). Sau 5s thì lệnh thực thi trong setTimeout sẽ đuợc push vào Stack.
++ Chính là nhờ Event Loop
+
++ Khi nào setTimeout vừa được push vào Stack, nó sẽ pop khỏi Stack và WebAPIs sẽ đảm nhiệm timer của setTimeout
++ Khi timer xong, WebAPIs sẽ push callback (những gì thực thi trong setTimeout đó) vào trong Callback Queue
++ Nhiệm vụ của Event Loop là đợi cho Call Stack rỗng rồi sẽ soi Callback Queue xem có gì không, nếu có thì bốc cái đầu tiên bỏ vào Callback Stack để chạy
 
 
