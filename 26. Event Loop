@@ -15,11 +15,47 @@
 - Với mỗi dòng code async thì async A được push vào Stack và chờ thực thi, thực thi xong pop. Rồi async B được push vào Stack, chờ thực thi xong sẽ pop khỏi Stack.
 
 - Nếu đối với setTimeout: ví dụ nếu có lệnh thực thi setTimeout 5s thì:
++ Do single call stack nên nếu chờ đợi setTimeout trong Stack thì sẽ phải chờ và ko thực thi các function khác được nên...
 + setTimeout sẽ được gọi vào trong Stack, nhưng bằng cách "nào đó" nó được biến mất (để còn thực hiện các lệnh khác). Sau 5s thì lệnh thực thi trong setTimeout sẽ đuợc push vào Stack.
 + Chính là nhờ Event Loop
 
 + Khi nào setTimeout vừa được push vào Stack, nó sẽ pop khỏi Stack và WebAPIs sẽ đảm nhiệm timer của setTimeout
 + Khi timer xong, WebAPIs sẽ push callback (những gì thực thi trong setTimeout đó) vào trong Callback Queue
-+ Nhiệm vụ của Event Loop là đợi cho Call Stack rỗng rồi sẽ soi Callback Queue xem có gì không, nếu có thì bốc cái đầu tiên bỏ vào Callback Stack để chạy
++ Nhiệm vụ của Event Loop là đợi cho Call Stack thực thi hết tác vụ rồi sẽ soi Callback Queue xem có gì không, nếu có thì bốc cái đầu tiên bỏ vào Callback Stack để chạy
++ Các async function cũng tương tự (nên nếu muốn chờ phải dùng keyword async/await)
+
+
+VD:
+console.log("1");
+$.on('button', 'click', function onClick() {
+    console.log('You clicked the button!');  
+});
+
+console.log("2");  // lúc này ta sẽ click 3 lần vào button để kích hoạt event click
+
+setTimeout(function timeout() {
+    console.log("Timeout!");
+}, 5000);
+
+console.log("3");
+
+******
+- Đầu tiên console.log("1") push vào Callback Stack và thực thi sau đó được pop ra
+- Sự kiện on click được push vào Callback Stack và được chuyển sang WebAPIs
+- console.log("2") push vào Callback Stack và thực thi sau đó được pop ra
+- 3 sự kiện click bị trigger được WebAPIs push vào Callback Queue
+- setTimeout được push vào Callback Stack và được chuyển sang WebAPIs để đếm timer của function timeout()
+- console.log("3") push vào Callback Stack và thực thi sau đó được pop ra
+- Sau đó Callback Stack đã hết tác vụ bắt đầu gọi trong Callback Queue, setTimeout sau khi hết 5s đã xếp cuối trong Queue
+- Lần lượt các tác vụ đuợc push vào Callback Stack và thực thi: onClick() -> onClick() -> onClick() -> timeout()
+
+Vậy sẽ in trên màn hình là:
+1
+2
+3
+You clicked the button!
+You clicked the button!
+You clicked the button!
+Timeout!
 
 
